@@ -4,7 +4,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
-  <title>Archives | WYM</title>
+  <title>jsp 基础知识 | WYM</title>
   <meta name="description" content="" />
   <meta name="HandheldFriendly" content="True" />
   <meta name="MobileOptimized" content="320" />
@@ -136,7 +136,7 @@
                 
                 <div id="nav-container">
                     <div class="post-navbar" style="line-height: 63px;display:none">
-                        <li id="navbar-title"><a href="#">undefined</a></li>
+                        <li id="navbar-title"><a href="#">jsp 基础知识</a></li>
                         <li id="navbar-toc" style="border-left: none">
                             <a style="padding-right: 15px">
                                 <span id="toc-content" >Introduction</span><i class="fa fa-chevron-down" ></i>
@@ -155,112 +155,72 @@
 
 
 <!-- -->
-<!--<body class="home-template">-->
+<!--<body class="post-template">-->
 <!---->
   
+
 <main class="content" role="main">
+    <article class="post" >
+    <span class="post-meta">
+                  <div class="tag-tile">
+                      
+                      
+                      <a data-pjax href='/tags/jsp/' style='color:#D5D5D5'>jsp</a>
+                      
+                      
+                  </div>
+                <h1 class="post-title" style="margin: 14px 0;color:#50585D">jsp 基础知识</h1>
 
-    
-    <article class="post">
+                    <div class="post-meta">
+                        Post on<span class="fa fa-clock-o"></span>
+                        <time datetime="2015-12-08T18:26:45.000Z"
+                              itemprop="datePublished">2015-12-09</time>
+                    </div>
+    </span>
 
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/jsp/'>jsp</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/12/09/jsp-基础知识/">jsp 基础知识</a>
-            </h1>
+        <section class="post-content">
+            <p>html代码：</p>
+<p> input type=“password” name=“pw”<br> input type=“text” name=“txt”<br> textarea name=“txtarea”</p>
+<p>取password 的值<br>String pw  = request.getParameter(“pw”);</p>
+<p>取 text 文本框的值<br>String pw = request.getParameter(“txt”);</p>
+<p>取 textarea 文本域的值<br>String pw = request.getParameter(“txtarea”);</p>
+<p>input type=“radio” name=“sex” value=“1”<br>input type=“radio” name=“sex” value=“0</p>
+<p>取 radio 单选按钮的值<br>String result = request.getParameter(“sex”);</p>
+<p>select name=“sel“<br>    option value=“101”&gt;选项1选项2</p>
+<p>取下拉菜单 select 的值<br>String result = request.getParameter(“sel”);</p>
+<p>页面跳转 重点 ：重定向 和 请求转发  一定要分清 .</p>
+<p>重定向 ：<br>       response.sendRedirect(“index.jsp”);<br>代参数 ：<br>    response.sendRedirect(“index.jsp?aa=123”);<br>多参数 ：<br>    response.sendRedirect(“index.jsp?aa=123&amp;bb=456”);</p>
+<p>请求转发：<br>    创建 requestDispatcher类对象<br>    requestDispatcher rd = request.getRequestDispatcher();<br>    通过forward 方法跳转<br>    rd.forward(request,response);</p>
+<p>区别 ：  重定向跳转页面时，传到的页面不接受参数.<br>        请求转发跳转页面时，传到的页接收参数。              </p>
+<p>请求转发时 携带Obeject<br> 页面通过 request.setAttribute() 来存放数据  。<br> Obeject ob =  new Object();<br> request.setAttribute(“myob”,ob);</p>
+<p> 页面通过 getAttribute 方法来 读取数据 。<br> Object  result = request.getAttribute(“myob”);</p>
+<pre><code><span class="title">session</span> 对象
+</code></pre><p>作用域 ： 当使用浏览器访问web服务器时，会建立一次会话（session）,我们可以往session里存储数据，在于服务器断开之前都是有效的。</p>
+<p>使用方法： 往session 存储数据<br>          session.setAttribute(“key”,”value”);<br>          从session 获取数据<br>          Object value = session.getAttribute(“key”);<br>         注意： session 返回的Object 类型， 如果需要别的类型，请强转。</p>
+<pre><code><span class="type">application</span> 对象
+</code></pre><p>作用域： applcation 是一个应用级对象 ， 在整个网站拥有唯一作用域 ， 如果存在多个session 那么多个session 公用一个application</p>
+<p>使用方法 ：  向application 里存入数据<br>            application.setAttribute(“key”,”value”);<br>            从application 中获取数据<br>            Object value = application.getAttribute(“key”);<br>            注意： 返回值也是Object 跟session 一样 。 </p>
+<p>以上就是JSP最基础，也是最实用的知识了              </p>
 
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-12-08T18:26:45.000Z"
-                      itemprop="datePublished">2015-12-09</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                html代码：
- input type=“password” name=“pw” input type=“text” name=“txt” textarea name=“txtarea”
-取password 的值String pw  = request.getParameter(“pw”);
-取 text 文本框的值String pw = request.getParameter(“txt”);
-取 textarea 文本域的值Stri
-                
-            </p>
-            
         </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                
-                <a data-pjax href='/tags/git/'>git</a>
-                
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/12/08/Git-基本命令/">Git 基本命令</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-12-07T20:28:10.000Z"
-                      itemprop="datePublished">2015-12-08</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                hexo
-npm install hexo -g #安装npm update hexo -g #升级hexo init #初始化简写
-hexo n “我的博客” == hexo new “我的博客” #新建文章hexo p == hexo publishhexo g == hexo generate#生成hexo s == hexo server #启动服务预览hexo d == hexo deploy#部署
-服务器
-hexo serv
-                
-            </p>
+        <hr/>
+        <nav class="pagination" style="width:auto" role="pagination">
             
-        </section>
-    </article>
-    
-    <article class="post">
-
-        <header class="post-header">
-            <div class="tag-tile">
-                
-                <span class="fa fa-bookmark" style="float:right;color:#f39c12"></span>
-            </div>
-            <h1 class="post-title"><a data-pjax href="/2015/12/08/欢迎来到王玉明的博客/">欢迎来到王玉明的博客</a>
-            </h1>
-
-            <div class="post-meta">
-                Post on<span class="fa fa-clock-o"></span>
-                <time datetime="2015-12-07T19:38:32.000Z"
-                      itemprop="datePublished">2015-12-08</time>
-            </div>
-        </header>
-        <section class="post-excerpt">
-            <p>
-                
-                以后我以后会发一些技术贴 ，希望有兴趣的同学进来看看,欢迎大家一起讨论。
-
-                
-            </p>
+            <a style="cursor:default" class="newer-posts" href="#">This is the First Post</a>
             
+            <a class="share-button" data-original-title title>Share this Post</a>
+            
+            <a data-pjax class="older-posts" href="/2015/12/08/Git-基本命令/">Next Post →</a>
+            
+        </nav>
+        <br/>
+        <br/>
+        <section id="comment">
+            <div id="comment-box"></div>
         </section>
+
+
     </article>
-    
-    <nav class="pagination" role="pagination">
-        
-        <span class="page-number">Page 1 of 1</span>
-        
-    </nav>
 </main>
 
 
