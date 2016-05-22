@@ -4,18 +4,21 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>请叫我网络工程师！哈哈 | WYM</title>
+  <title>java 多线程-状态 | WYM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
+  <meta name="description" content="java 多线程 主要有五种状态 分别是：
+1.新建状态（NEW） ： 就是新创建的线程 ，new 出来的线程对象。2.就绪状态（Runnable）: 当线程被创建出来，使用start方法之后，其他线程获得CPU的使用权，而该线程处于等待CUP使用权时，称为就绪状态。3.运行状态（Running）: 当线程正处于就绪态时,当先线程获得CPU使用权时，该线程处于运行状态。4.阻塞状态（Blocked">
 <meta property="og:type" content="article">
-<meta property="og:title" content="请叫我网络工程师！哈哈">
-<meta property="og:url" content="http://yoursite.com/2015/12/18/请叫我网络工程师！哈哈/index.html">
+<meta property="og:title" content="java 多线程-状态">
+<meta property="og:url" content="http://yoursite.com/2015/12/09/java多线程-状态/index.html">
 <meta property="og:site_name" content="WYM">
-<meta property="og:description">
-<meta property="og:updated_time" content="2015-12-17T23:16:35.263Z">
+<meta property="og:description" content="java 多线程 主要有五种状态 分别是：
+1.新建状态（NEW） ： 就是新创建的线程 ，new 出来的线程对象。2.就绪状态（Runnable）: 当线程被创建出来，使用start方法之后，其他线程获得CPU的使用权，而该线程处于等待CUP使用权时，称为就绪状态。3.运行状态（Running）: 当线程正处于就绪态时,当先线程获得CPU使用权时，该线程处于运行状态。4.阻塞状态（Blocked">
+<meta property="og:updated_time" content="2016-05-22T12:04:04.277Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="请叫我网络工程师！哈哈">
-<meta name="twitter:description">
+<meta name="twitter:title" content="java 多线程-状态">
+<meta name="twitter:description" content="java 多线程 主要有五种状态 分别是：
+1.新建状态（NEW） ： 就是新创建的线程 ，new 出来的线程对象。2.就绪状态（Runnable）: 当线程被创建出来，使用start方法之后，其他线程获得CPU的使用权，而该线程处于等待CUP使用权时，称为就绪状态。3.运行状态（Running）: 当线程正处于就绪态时,当先线程获得CPU使用权时，该线程处于运行状态。4.阻塞状态（Blocked">
   
     <link rel="alternative" href="/atom.xml" title="WYM" type="application/atom+xml">
   
@@ -115,7 +118,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a>
+						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsp/" style="font-size: 10px;">jsp</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a>
 					</div>
 				</section>
 				
@@ -199,11 +202,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-请叫我网络工程师！哈哈" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java多线程-状态" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2015/12/18/请叫我网络工程师！哈哈/" class="article-date">
-  	<time datetime="2015-12-17T23:16:35.000Z" itemprop="datePublished">2015-12-18</time>
+      <a href="/2015/12/09/java多线程-状态/" class="article-date">
+  	<time datetime="2015-12-08T18:26:45.000Z" itemprop="datePublished">2015-12-09</time>
 </a>
     </div>
   
@@ -216,7 +219,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      请叫我网络工程师！哈哈
+      java 多线程-状态
     </h1>
   
 
@@ -224,6 +227,10 @@
       
       <div class="article-info article-info-post">
         
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/多线程/">多线程</a></li></ul>
+	</div>
+
         
 
         <div class="clearfix"></div>
@@ -232,7 +239,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>java 多线程 主要有五种状态 分别是：</p>
+<p>1.新建状态（NEW） ： 就是新创建的线程 ，new 出来的线程对象。<br>2.就绪状态（Runnable）: 当线程被创建出来，使用start方法之后，其他线程获得CPU的使用权，而该线程处于等待CUP使用权时，称为就绪状态。<br>3.运行状态（Running）: 当线程正处于就绪态时,当先线程获得CPU使用权时，该线程处于运行状态。<br>4.阻塞状态（Blocked）:当线程由于某种原因放弃了CPU的使用权，称为阻塞态。<br>分三种：<br>  一. 等待阻塞：运行的线程执行wait方法时，jvm 会把该线程放入等待线程池中。<br>  二. 同步阻塞：当运行的线程获取对象的同步锁时，其他线程使用着该锁时，则被放入锁池中。<br>  三. 其他阻塞：该线程被执行sleep或join 方法时，或者发出了I/O请求时，该线程成为阻塞状态。<br>5.死亡状态（Dead）: 当线程执行完或者退出了线程的run 方法时，该线程结束了生命周期，成为死亡状态。</p>
+
       
     </div>
     
@@ -241,18 +250,18 @@
     
 <nav id="article-nav">
   
-    <a href="/2015/12/20/天天学习固然是好，但是可不要贪杯哦！/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2015/12/09/jsp-基础知识/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption"><</strong>
       <div class="article-nav-title">
         
-          天天学习固然是好，但是可不要贪杯哦！
+          jsp 基础知识
         
       </div>
     </a>
   
   
-    <a href="/2015/12/10/javascript-基本知识/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">javascript  基本知识</div>
+    <a href="/2015/12/08/Git-基本命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Git 基本命令</div>
       <strong class="article-nav-caption">></strong>
     </a>
   
@@ -298,7 +307,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="请叫我网络工程师！哈哈" data-title="请叫我网络工程师！哈哈" data-url="http://yoursite.com/2015/12/18/请叫我网络工程师！哈哈/"></div>
+	<div class="ds-thread" data-thread-key="java多线程-状态" data-title="java 多线程-状态" data-url="http://yoursite.com/2015/12/09/java多线程-状态/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
