@@ -1,382 +1,301 @@
-<!DOCTYPE html>
+
+
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
-  
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>java的四种引用    (强、软、弱、虚) | WYM</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java的四种引用    (强、软、弱、虚)&amp;nbsp;&amp;nbsp;&amp;nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。1.强引用&amp;nbsp;&amp;nbsp;&amp;nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的">
-<meta property="og:type" content="article">
-<meta property="og:title" content="java的四种引用    (强、软、弱、虚)">
-<meta property="og:url" content="http://yoursite.com/2015/12/08/java 的四种引用/index.html">
-<meta property="og:site_name" content="WYM">
-<meta property="og:description" content="java的四种引用    (强、软、弱、虚)&amp;nbsp;&amp;nbsp;&amp;nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。1.强引用&amp;nbsp;&amp;nbsp;&amp;nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的">
-<meta property="og:updated_time" content="2016-07-29T03:17:34.453Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java的四种引用    (强、软、弱、虚)">
-<meta name="twitter:description" content="java的四种引用    (强、软、弱、虚)&amp;nbsp;&amp;nbsp;&amp;nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。1.强引用&amp;nbsp;&amp;nbsp;&amp;nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的">
-  
-    <link rel="alternative" href="/atom.xml" title="WYM" type="application/atom+xml">
-  
-  
-  <link rel="stylesheet" href="/css/style.css" type="text/css">
-</head>
-
-<body>
-  <div id="container">
-    <div class="left-col">
-    <div class="overlay"></div>
-<div class="intrude-less">
-	<header id="header" class="inner">
-		<a href="/" class="profilepic">
-			
-			<img lazy-src="/img/aa.jpg" class="js-avatar">
-			
-		</a>
-
-		<hgroup>
-		  <h1 class="header-author"><a href="/">WYM</a></h1>
-		</hgroup>
-
-		
-
-		
-			<div class="switch-btn">
-				<div class="icon">
-					<div class="icon-ctn">
-						<div class="icon-wrap icon-house" data-idx="0">
-							<div class="birdhouse"></div>
-							<div class="birdhouse_holes"></div>
-						</div>
-						<div class="icon-wrap icon-ribbon hide" data-idx="1">
-							<div class="ribbon"></div>
-						</div>
-						
-						<div class="icon-wrap icon-link hide" data-idx="2">
-							<div class="loopback_l"></div>
-							<div class="loopback_r"></div>
-						</div>
-						
-						
-						<div class="icon-wrap icon-me hide" data-idx="3">
-							<div class="user"></div>
-							<div class="shoulder"></div>
-						</div>
-						
-					</div>
-					
-				</div>
-				<div class="tips-box hide">
-					<div class="tips-arrow"></div>
-					<ul class="tips-inner">
-						<li>菜单</li>
-						<li>標籤</li>
-						
-						<li>友情链接</li>
-						
-						
-						<li>關於</li>
-						
-					</ul>
-				</div>
-			</div>
-		
-
-		<div class="switch-area">
-			<div class="switch-wrap">
-				<section class="switch-part switch-part1">
-					<nav class="header-menu">
-						<ul>
-						
-							<li><a href="/">主页</a></li>
-				        
-							<li><a href="/">说说</a></li>
-				        
-							<li><a href="/archives">文章</a></li>
-				        
-						</ul>
-					</nav>
-					<nav class="header-nav">
-						<div class="social">
-							
-								<a class="github" target="_blank" href="/#" title="github">github</a>
-					        
-								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
-					        
-								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
-					        
-								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
-					        
-						</div>
-					</nav>
-				</section>
-				
-				
-				<section class="switch-part switch-part2">
-					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsp/" style="font-size: 20px;">jsp</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a>
-					</div>
-				</section>
-				
-				
-				
-				<section class="switch-part switch-part3">
-					<div id="js-friends">
-					
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
-			        
-			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
-			        
-			        </div>
-				</section>
-				
-
-				
-				
-				<section class="switch-part switch-part4">
-				
-					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
-				</section>
-				
-			</div>
-		</div>
-	</header>				
-</div>
-
-    </div>
-    <div class="mid-col">
-      <nav id="mobile-nav">
-  	<div class="overlay">
-  		<div class="slider-trigger"></div>
-  		<h1 class="header-author js-mobile-header hide">WYM</h1>
-  	</div>
-	<div class="intrude-less">
-		<header id="header" class="inner">
-			<div class="profilepic">
-			
-				<img lazy-src="/img/aa.jpg" class="js-avatar">
-			
-			</div>
-			<hgroup>
-			  <h1 class="header-author">WYM</h1>
-			</hgroup>
-			
-			<nav class="header-menu">
-				<ul>
-				
-					<li><a href="/">主页</a></li>
-		        
-					<li><a href="/">说说</a></li>
-		        
-					<li><a href="/archives">文章</a></li>
-		        
-		        <div class="clearfix"></div>
-				</ul>
-			</nav>
-			<nav class="header-nav">
-				<div class="social">
-					
-						<a class="github" target="_blank" href="/#" title="github">github</a>
-			        
-						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
-			        
-						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
-			        
-						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
-			        
-				</div>
-			</nav>
-		</header>				
-	</div>
-</nav>
-
-      <div class="body-wrap"><article id="post-java 的四种引用" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/12/08/java 的四种引用/" class="article-date">
-  	<time datetime="2015-12-07T20:28:10.000Z" itemprop="datePublished">2015-12-08</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      java的四种引用    (强、软、弱、虚)
-    </h1>
-  
-
-      </header>
-      
-      <div class="article-info article-info-post">
-        
-	<div class="article-tag tagcloud">
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-	</div>
-
-        
-
-        <div class="clearfix"></div>
-      </div>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="java的四种引用_(强、软、弱、虚)">java的四种引用    (强、软、弱、虚)</h1><h3 id="&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference_Queue_对JVM的垃圾回收机制非常有用。">&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。</h3><h3 id="1-强引用">1.强引用</h3><h4 id="&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如_Object_o_=_new_Object();_虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。">&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。</h4><h3 id="2-软引用">2.软引用</h3><h4 id="&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。">&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。</h4><h4 id="&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。_软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。 软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。</h4><h3 id="3-弱引用">3.弱引用</h3><h4 id="&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。">&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。</h4><h4 id="&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回_收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回 收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。</h4><h3 id="4-虚引用">4.虚引用</h3><h4 id="&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列_（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。">&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列 （ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</h4>
-      
-    </div>
-    
-  </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/12/08/Git-基本命令/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption"><</strong>
-      <div class="article-nav-title">
-        
-          Git 基本命令
-        
-      </div>
-    </a>
-  
-  
-</nav>
-
-  
-</article>
-
-
-<div class="share_jia">
-	<!-- JiaThis Button BEGIN -->
-	<div class="jiathis_style">
-		<span class="jiathis_txt">分享到: &nbsp; </span>
-		<a class="jiathis_button_facebook"></a> 
-    <a class="jiathis_button_twitter"></a>
-    <a class="jiathis_button_plus"></a> 
-    <a class="jiathis_button_tsina"></a>
-		<a class="jiathis_button_cqq"></a>
-		<a class="jiathis_button_douban"></a>
-		<a class="jiathis_button_weixin"></a>
-		<a class="jiathis_button_tumblr"></a>
-    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
-	</div>
-	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
-	<!-- JiaThis Button END -->
-</div>
-
-
-
-
-<div class="share_addthis">
-  <div class="sharing addthis_toolbox share">
-    <a class="addthis_button_facebook_like"></a>
-    <a class="addthis_button_tweet"></a>
-    <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-560c64c35486b3d4" async="async"></script>
-</div>
-
-
-
-
-<div class="duoshuo">
-	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="java 的四种引用" data-title="java的四种引用    (强、软、弱、虚)" data-url="http://yoursite.com/2015/12/08/java 的四种引用/"></div>
-	<!-- 多说评论框 end -->
-	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-	<script type="text/javascript">
-	var duoshuoQuery = {short_name:"true"};
+  <script type="text/javascript" src="http://tajs.qq.com/stats?sId=44218032" charset="UTF-8"></script>
+  <script>
+	var _hmt = _hmt || [];
 	(function() {
-		var ds = document.createElement('script');
-		ds.type = 'text/javascript';ds.async = true;
-		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-		ds.charset = 'UTF-8';
-		(document.getElementsByTagName('head')[0] 
-		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	  var hm = document.createElement("script");
+	  hm.src = "//hm.baidu.com/hm.js?7192fa361f5cabb11d8a22de41c1ba8f";
+	  var s = document.getElementsByTagName("script")[0]; 
+	  s.parentNode.insertBefore(hm, s);
 	})();
 	</script>
-	<!-- 多说公共JS代码 end -->
+  
+  <title>java的四种引用    (强、软、弱、虚) | WYM</title>
+  <meta name="author" content="WYM">
+  
+  <meta name="description" content="java的四种引用    (强、软、弱、虚)&amp;nbsp;&amp;nbsp;&amp;nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。1.强引用&amp;nbsp;&amp;nbsp;&amp;nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object">
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:title" content="java的四种引用    (强、软、弱、虚)"/>
+  <meta property="og:site_name" content="WYM"/>
+
+  
+    <meta property="og:image" content="undefined"/>
+  
+
+  <link href="/imgs/favicon.ico" rel="icon" type="image/x-ico">
+  <link rel="alternate" href="/atom.xml" title="WYM" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
+  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  <script src="//libs.baidu.com/jquery/1.8.0/jquery.min.js"></script>
+</head>
+
+
+<body>
+  <header><div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/imgs/logo.png" alt="WYM" title="WYM"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name">WYM</h1>
+				<h2 class="blog-motto"></h2>
+			</div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+						<li><a href="/about">About</a></li>
+					
+					<li> <a href="/atom.xml">RSS</a> </li>
+				</ul>
+			</nav>			
 </div>
-
-
-
-
-</div>
-      <footer id="footer">
-  <div class="outer">
-    <div id="footer-info">
-    	<div class="footer-left">
-    		&copy; 2016 WYM
-    	</div>
-      	<div class="footer-right">
-      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
-      	</div>
-    </div>
-  </div>
-</footer>
-    </div>
+</header>
+  <div id="content" class="inner">
+    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+  
+    <div class="gallery">
+  <div class="photoset">
     
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+      <img src="">
+    
+  </div>
+  <div class="control">
+    <div class="prev"></div>
+    <div class="next"></div>
+  </div>
+</div>
+  
+  <div class="post-content">
+    <header class="article-info clearfix">
+  <h1 itemprop="name">
+	java的四种引用    (强、软、弱、虚)
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="WYM">WYM</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-12-07T20:28:10.000Z" itemprop="datePublished">2015-12-08</time>
+    更新日期:<time datetime="2016-07-29T03:17:34.453Z" itemprop="dateModified">2016-07-29</time>
+    
+  </p>
+</header>
+    <div class="entry">
+		
+        <h1 id="java的四种引用_(强、软、弱、虚)">java的四种引用    (强、软、弱、虚)</h1><h3 id="&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference_Queue_对JVM的垃圾回收机制非常有用。">&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。</h3><h3 id="1-强引用">1.强引用</h3><h4 id="&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如_Object_o_=_new_Object();_虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。">&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。</h4><h3 id="2-软引用">2.软引用</h3><h4 id="&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。">&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。</h4><h4 id="&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。_软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。 软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。</h4><h3 id="3-弱引用">3.弱引用</h3><h4 id="&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。">&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。</h4><h4 id="&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回_收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回 收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。</h4><h3 id="4-虚引用">4.虚引用</h3><h4 id="&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列_（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。">&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列 （ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</h4>
+    </div>
+    <footer>
+        
+        
+  
+  <div class="tags">
+    <a href="/tags/java/">java</a>
+  </div>
 
-
+		<div class="bdsharebuttonbox">
+	<a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+	<a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+	<a href="#" class="bds_tqq" data-cmd="tqq" title="分享到腾讯微博"></a>
+	<a href="#" class="bds_renren" data-cmd="renren" title="分享到人人网"></a>
+	<a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+	<a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+	<a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+	<a href="#" class="bds_more" data-cmd="more"></a>
+	<a href="#" class="bds_count" data-cmd="count"></a>
+</div>
 <script>
-	var yiliaConfig = {
-		fancybox: true,
-		mathjax: true,
-		animate: true,
-		isHome: false,
-		isPost: true,
-		isArchive: false,
-		isTag: false,
-		isCategory: false,
-		open_in_new: false
+window._bd_share_config=
+{
+	"common":{
+		"bdSnsKey":{},
+		"bdText":"",
+		"bdMini":"2",
+		"bdMiniList":false,
+		"bdPic":"",
+		"bdStyle":"0",
+		"bdSize":"24"
+	},
+	"share":{},
+	"image":{
+		"viewList":["qzone","tsina","tqq","renren","weixin","fbook","twi"],
+		"viewText":"分享到：",
+		"viewSize":"24"
+	},
+	"selectShare":{
+		"bdContainerClass":null,
+		"bdSelectMiniList":["qzone","tsina","tqq","renren","weixin","fbook","twi"]
 	}
+};
+with(document)0[
+	(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)
+];
+</script>    
+        <div class="clearfix"></div>
+    </footer>
+  </div>
+</article>
+
+ <nav id="pagination" >
+    
+    <a href="/2015/12/08/Git-基本命令/" class="alignleft prev" title="Git 基本命令">Git 基本命令</a>
+    
+    
+    <div class="clearfix"></div>
+</nav>
+
+
+
+	
+	<section id="comment">
+		<!-- 多说评论框 start -->
+		<div class="ds-thread" data-thread-key="2015/12/08/java 的四种引用/" data-title="java的四种引用    (强、软、弱、虚)" data-url="http://yoursite.com/2015/12/08/java 的四种引用/"></div>
+		<!-- 多说评论框 end -->
+		<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+		<script type="text/javascript">
+		var duoshuoQuery = {short_name:""};
+		(function() {
+			var ds = document.createElement('script');
+			ds.type = 'text/javascript';ds.async = true;
+			ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+			ds.charset = 'UTF-8';
+			(document.getElementsByTagName('head')[0] 
+			 || document.getElementsByTagName('body')[0]).appendChild(ds);
+		})();
+		</script>
+		<!-- 多说公共JS代码 end -->
+	</section>
+	
+</div></div>
+    <aside id="sidebar" class="alignright">
+  <div class="search">
+  <form action="//google.com/search" method="get" accept-charset="utf-8">
+    <input type="search" name="q" results="0" placeholder="搜尋">
+    <input type="hidden" name="q" value="site:yoursite.com">
+  </form>
+</div>
+
+  
+
+  
+<div class="widget tagcloud">
+  <h3 class="title">標籤雲</h3>
+  <div class="entry">
+    <a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsp/" style="font-size: 20px;">jsp</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a>
+  </div>
+</div>
+
+
+  <iframe width="100%" height="140" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=2&ptype=1&speed=0&skin=1&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=1923610190&verifier=6af5ad6a&colors=fafafa,fafafa,666666,0082cb,ecfbfd&dpc=1"></iframe>
+
+  <div class="widget tag">
+<h3 class="title">友情链接</h3>
+<ul class="entry">
+<li><a href="http://opiece.me" title="Chillax's Blog" target="_blank">Chillax</a></li>
+</ul>
+</div>
+</aside>
+    <div class="clearfix"></div>
+  </div>
+  <footer id="footer"><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hi,I&#39;m the designer of this theme. <br/>
+			You can download this theme on my github.</p>
+	</section>
+	 
+	<div class="social-font clearfix">
+		
+		<a href="http://weibo.com/1923610190" target="_blank" title="weibo"></a>
+		
+		
+		
+		<a href="https://github.com/huangjunhui" target="_blank" title="github"></a>
+		
+		
+		<a href="https://www.facebook.com/huangjunhui" target="_blank" title="facebook"></a>
+		
+		
+		
+		<a href="mailto:jhhuang1993@foxmail.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/huangjunhui/concise" target="_blank" title="Concise">Concise</a> © 2016 
+		
+		<a href="http://yoursite.com/about" target="_blank" title="WYM">WYM</a>
+		
+		</p>
+</div>
+</footer>
+  <script src="//libs.baidu.com/jquery/2.0.3/jquery.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/counter.js"></script>
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+(function($){
+  $('.fancybox').fancybox();
+})(jQuery);
 </script>
-<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="/js/main.js" type="text/javascript"></script>
 
-
-
-
-
+<div id="totop" style="position:fixed;bottom:100px;right:10px;cursor: pointer;">
+<a title="返回顶部"><img src="/imgs/scrollup.png"/></a>
+</div>
+<script src="/js/totop.js"></script>
+<!-- mathjax config similar to math.stackexchange -->
 
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
+  MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
     }
-});
+  });
+</script>
 
-MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';                 
-    }       
-});
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
 </script>
 
 <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
-
-
-  </div>
 </body>
 </html>
+
+
