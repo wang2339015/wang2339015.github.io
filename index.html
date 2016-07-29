@@ -114,7 +114,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsp/" style="font-size: 20px;">jsp</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a>
+						<a href="/tags/git/" style="font-size: 10px;">git</a> <a href="/tags/java/" style="font-size: 10px;">java</a> <a href="/tags/js/" style="font-size: 10px;">js</a> <a href="/tags/jsp/" style="font-size: 20px;">jsp</a> <a href="/tags/多线程/" style="font-size: 10px;">多线程</a>
 					</div>
 				</section>
 				
@@ -608,6 +608,62 @@
       
 	<div class="article-tag tagcloud">
 		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/git/">git</a></li></ul>
+	</div>
+
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-java 的四种引用" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/12/08/java 的四种引用/" class="article-date">
+  	<time datetime="2015-12-07T20:28:10.000Z" itemprop="datePublished">2015-12-08</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/12/08/java 的四种引用/">java的四种引用    (强、软、弱、虚)</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="java的四种引用_(强、软、弱、虚)">java的四种引用    (强、软、弱、虚)</h1><h3 id="&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference_Queue_对JVM的垃圾回收机制非常有用。">&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。</h3><h3 id="1-强引用">1.强引用</h3><h4 id="&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如_Object_o_=_new_Object();_虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。">&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。</h4><h3 id="2-软引用">2.软引用</h3><h4 id="&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。">&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。</h4><h4 id="&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。_软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。 软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。</h4><h3 id="3-弱引用">3.弱引用</h3><h4 id="&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。">&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。</h4><h4 id="&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回_收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回 收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。</h4><h3 id="4-虚引用">4.虚引用</h3><h4 id="&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列_（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。">&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列 （ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</h4>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
 	</div>
 
       

@@ -4,18 +4,18 @@
   <meta charset="utf-8">
   
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <title>WYM</title>
+  <title>java的四种引用    (强、软、弱、虚) | WYM</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="SpringMVC 和 Struts2 比较1、Struts2是类级别的拦截， 一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性">
+  <meta name="description" content="java的四种引用    (强、软、弱、虚)&amp;nbsp;&amp;nbsp;&amp;nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。1.强引用&amp;nbsp;&amp;nbsp;&amp;nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WYM">
-<meta property="og:url" content="http://yoursite.com/2016/07/21/Spring 和 Struts2 比较/index.html">
+<meta property="og:title" content="java的四种引用    (强、软、弱、虚)">
+<meta property="og:url" content="http://yoursite.com/2015/12/08/java 的四种引用/index.html">
 <meta property="og:site_name" content="WYM">
-<meta property="og:description" content="SpringMVC 和 Struts2 比较1、Struts2是类级别的拦截， 一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性">
-<meta property="og:updated_time" content="2016-07-21T09:14:39.699Z">
+<meta property="og:description" content="java的四种引用    (强、软、弱、虚)&amp;nbsp;&amp;nbsp;&amp;nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。1.强引用&amp;nbsp;&amp;nbsp;&amp;nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的">
+<meta property="og:updated_time" content="2016-07-29T03:17:34.453Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="WYM">
-<meta name="twitter:description" content="SpringMVC 和 Struts2 比较1、Struts2是类级别的拦截， 一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性">
+<meta name="twitter:title" content="java的四种引用    (强、软、弱、虚)">
+<meta name="twitter:description" content="java的四种引用    (强、软、弱、虚)&amp;nbsp;&amp;nbsp;&amp;nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。1.强引用&amp;nbsp;&amp;nbsp;&amp;nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的">
   
     <link rel="alternative" href="/atom.xml" title="WYM" type="application/atom+xml">
   
@@ -199,11 +199,11 @@
 	</div>
 </nav>
 
-      <div class="body-wrap"><article id="post-Spring 和 Struts2 比较" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-java 的四种引用" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/07/21/Spring 和 Struts2 比较/" class="article-date">
-  	<time datetime="2016-07-21T09:14:39.699Z" itemprop="datePublished">2016-07-21</time>
+      <a href="/2015/12/08/java 的四种引用/" class="article-date">
+  	<time datetime="2015-12-07T20:28:10.000Z" itemprop="datePublished">2015-12-08</time>
 </a>
     </div>
   
@@ -212,9 +212,31 @@
       <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      java的四种引用    (强、软、弱、虚)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="SpringMVC_和_Struts2_比较">SpringMVC 和 Struts2 比较</h1><h4 id="1、Struts2是类级别的拦截，_一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful_url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性却被所有方法共享，这也就无法用注解或其他方式标识其所属方法了。">1、Struts2是类级别的拦截， 一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性却被所有方法共享，这也就无法用注解或其他方式标识其所属方法了。</h4><h4 id="2、由上边原因，SpringMVC的方法之间基本上独立的，独享request_response数据，请求数据通过参数获取，处理结果通过ModelMap交回给框架，方法之间不共享变量，而Struts2搞的就比较乱，虽然方法之间也是独立的，但其所有Action变量是共享的，这不会影响程序运行，却给我们编码_读程序时带来麻烦，每次来了请求就创建一个Action，一个Action对象对应一个request上下文。">2、由上边原因，SpringMVC的方法之间基本上独立的，独享request response数据，请求数据通过参数获取，处理结果通过ModelMap交回给框架，方法之间不共享变量，而Struts2搞的就比较乱，虽然方法之间也是独立的，但其所有Action变量是共享的，这不会影响程序运行，却给我们编码 读程序时带来麻烦，每次来了请求就创建一个Action，一个Action对象对应一个request上下文。</h4><h4 id="3、由于Struts2需要针对每个request进行封装，把request，session等servlet生命周期的变量封装成一个一个Map，供给每个Action使用，并保证线程安全，所以在原则上，是比较耗费内存的。">3、由于Struts2需要针对每个request进行封装，把request，session等servlet生命周期的变量封装成一个一个Map，供给每个Action使用，并保证线程安全，所以在原则上，是比较耗费内存的。</h4><h4 id="4、_拦截器实现机制上，Struts2有以自己的interceptor机制，SpringMVC用的是独立的AOP方式，这样导致Struts2的配置文件量还是比SpringMVC大。">4、 拦截器实现机制上，Struts2有以自己的interceptor机制，SpringMVC用的是独立的AOP方式，这样导致Struts2的配置文件量还是比SpringMVC大。</h4><h4 id="5、SpringMVC的入口是servlet，而Struts2是filter（这里要指出，filter和servlet是不同的。以前认为filter是servlet的一种特殊），这就导致了二者的机制不同，这里就牵涉到servlet和filter的区别了。">5、SpringMVC的入口是servlet，而Struts2是filter（这里要指出，filter和servlet是不同的。以前认为filter是servlet的一种特殊），这就导致了二者的机制不同，这里就牵涉到servlet和filter的区别了。</h4><h4 id="6、SpringMVC集成了Ajax，使用非常方便，只需一个注解@ResponseBody就可以实现，然后直接返回响应文本即可，而Struts2拦截器集成了Ajax，在Action中处理时一般必须安装插件或者自己写代码集成进去，使用起来也相对不方便。">6、SpringMVC集成了Ajax，使用非常方便，只需一个注解@ResponseBody就可以实现，然后直接返回响应文本即可，而Struts2拦截器集成了Ajax，在Action中处理时一般必须安装插件或者自己写代码集成进去，使用起来也相对不方便。</h4><h4 id="7、SpringMVC验证支持JSR303，处理起来相对更加灵活方便，而Struts2验证比较繁琐，感觉太烦乱。">7、SpringMVC验证支持JSR303，处理起来相对更加灵活方便，而Struts2验证比较繁琐，感觉太烦乱。</h4><h4 id="8、Spring_MVC和Spring是无缝的。从这个项目的管理和安全上也比Struts2高（当然Struts2也可以通过不同的目录结构和相关配置做到SpringMVC一样的效果，但是需要xml配置的地方不少）。">8、Spring MVC和Spring是无缝的。从这个项目的管理和安全上也比Struts2高（当然Struts2也可以通过不同的目录结构和相关配置做到SpringMVC一样的效果，但是需要xml配置的地方不少）。</h4><h4 id="9、_设计思想上，Struts2更加符合OOP的编程思想，_SpringMVC就比较谨慎，在servlet上扩展。">9、 设计思想上，Struts2更加符合OOP的编程思想， SpringMVC就比较谨慎，在servlet上扩展。</h4><h4 id="10、SpringMVC开发效率和性能高于Struts2。">10、SpringMVC开发效率和性能高于Struts2。</h4><h4 id="11、SpringMVC可以认为已经100%零配置。">11、SpringMVC可以认为已经100%零配置。</h4>
+        <h1 id="java的四种引用_(强、软、弱、虚)">java的四种引用    (强、软、弱、虚)</h1><h3 id="&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference_Queue_对JVM的垃圾回收机制非常有用。">&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。</h3><h3 id="1-强引用">1.强引用</h3><h4 id="&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如_Object_o_=_new_Object();_虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。">&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。</h4><h3 id="2-软引用">2.软引用</h3><h4 id="&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。">&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。</h4><h4 id="&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。_软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。 软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。</h4><h3 id="3-弱引用">3.弱引用</h3><h4 id="&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。">&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。</h4><h4 id="&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回_收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回 收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。</h4><h3 id="4-虚引用">4.虚引用</h3><h4 id="&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列_（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。">&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列 （ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</h4>
       
     </div>
     
@@ -223,11 +245,15 @@
     
 <nav id="article-nav">
   
-  
-    <a href="/2016/06/14/spring 事务管理 学习笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
-      <strong class="article-nav-caption">></strong>
+    <a href="/2015/12/08/Git-基本命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Git 基本命令
+        
+      </div>
     </a>
+  
   
 </nav>
 
@@ -271,7 +297,7 @@
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="Spring 和 Struts2 比较" data-title="" data-url="http://yoursite.com/2016/07/21/Spring 和 Struts2 比较/"></div>
+	<div class="ds-thread" data-thread-key="java 的四种引用" data-title="java的四种引用    (强、软、弱、虚)" data-url="http://yoursite.com/2015/12/08/java 的四种引用/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">
