@@ -248,7 +248,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/07/21/Spring 和 Struts2 比较/" itemprop="url">
+                <a class="post-title-link" href="/2016/08/01/HTTP 小知识点/" itemprop="url">
                   Untitled
                 </a>
               
@@ -262,8 +262,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-07-21T17:14:39+08:00" content="2016-07-21">
-              2016-07-21
+            <time itemprop="dateCreated" datetime="2016-08-01T10:44:04+08:00" content="2016-08-01">
+              2016-08-01
             </time>
           </span>
 
@@ -292,7 +292,8 @@
       
         
           
-            <h1 id="SpringMVC_和_Struts2_比较">SpringMVC 和 Struts2 比较</h1><h4 id="1、Struts2是类级别的拦截，_一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful_url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性却被所有方法共享，这也就无法用注解或其他方式标识其所属方法了。">1、Struts2是类级别的拦截， 一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性却被所有方法共享，这也就无法用注解或其他方式标识其所属方法了。</h4><h4 id="2、由上边原因，SpringMVC的方法之间基本上独立的，独享request_response数据，请求数据通过参数获取，处理结果通过ModelMap交回给框架，方法之间不共享变量，而Struts2搞的就比较乱，虽然方法之间也是独立的，但其所有Action变量是共享的，这不会影响程序运行，却给我们编码_读程序时带来麻烦，每次来了请求就创建一个Action，一个Action对象对应一个request上下文。">2、由上边原因，SpringMVC的方法之间基本上独立的，独享request response数据，请求数据通过参数获取，处理结果通过ModelMap交回给框架，方法之间不共享变量，而Struts2搞的就比较乱，虽然方法之间也是独立的，但其所有Action变量是共享的，这不会影响程序运行，却给我们编码 读程序时带来麻烦，每次来了请求就创建一个Action，一个Action对象对应一个request上下文。</h4><h4 id="3、由于Struts2需要针对每个request进行封装，把request，session等servlet生命周期的变量封装成一个一个Map，供给每个Action使用，并保证线程安全，所以在原则上，是比较耗费内存的。">3、由于Struts2需要针对每个request进行封装，把request，session等servlet生命周期的变量封装成一个一个Map，供给每个Action使用，并保证线程安全，所以在原则上，是比较耗费内存的。</h4><h4 id="4、_拦截器实现机制上，Struts2有以自己的interceptor机制，SpringMVC用的是独立的AOP方式，这样导致Struts2的配置文件量还是比SpringMVC大。">4、 拦截器实现机制上，Struts2有以自己的interceptor机制，SpringMVC用的是独立的AOP方式，这样导致Struts2的配置文件量还是比SpringMVC大。</h4><h4 id="5、SpringMVC的入口是servlet，而Struts2是filter（这里要指出，filter和servlet是不同的。以前认为filter是servlet的一种特殊），这就导致了二者的机制不同，这里就牵涉到servlet和filter的区别了。">5、SpringMVC的入口是servlet，而Struts2是filter（这里要指出，filter和servlet是不同的。以前认为filter是servlet的一种特殊），这就导致了二者的机制不同，这里就牵涉到servlet和filter的区别了。</h4><h4 id="6、SpringMVC集成了Ajax，使用非常方便，只需一个注解@ResponseBody就可以实现，然后直接返回响应文本即可，而Struts2拦截器集成了Ajax，在Action中处理时一般必须安装插件或者自己写代码集成进去，使用起来也相对不方便。">6、SpringMVC集成了Ajax，使用非常方便，只需一个注解@ResponseBody就可以实现，然后直接返回响应文本即可，而Struts2拦截器集成了Ajax，在Action中处理时一般必须安装插件或者自己写代码集成进去，使用起来也相对不方便。</h4><h4 id="7、SpringMVC验证支持JSR303，处理起来相对更加灵活方便，而Struts2验证比较繁琐，感觉太烦乱。">7、SpringMVC验证支持JSR303，处理起来相对更加灵活方便，而Struts2验证比较繁琐，感觉太烦乱。</h4><h4 id="8、Spring_MVC和Spring是无缝的。从这个项目的管理和安全上也比Struts2高（当然Struts2也可以通过不同的目录结构和相关配置做到SpringMVC一样的效果，但是需要xml配置的地方不少）。">8、Spring MVC和Spring是无缝的。从这个项目的管理和安全上也比Struts2高（当然Struts2也可以通过不同的目录结构和相关配置做到SpringMVC一样的效果，但是需要xml配置的地方不少）。</h4><h4 id="9、_设计思想上，Struts2更加符合OOP的编程思想，_SpringMVC就比较谨慎，在servlet上扩展。">9、 设计思想上，Struts2更加符合OOP的编程思想， SpringMVC就比较谨慎，在servlet上扩展。</h4><h4 id="10、SpringMVC开发效率和性能高于Struts2。">10、SpringMVC开发效率和性能高于Struts2。</h4><h4 id="11、SpringMVC可以认为已经100%零配置。">11、SpringMVC可以认为已经100%零配置。</h4>
+            <p>title: Http 小知识点<br>date: 2016-7-20 02:26:45</p>
+<h2 id="tags:_http">tags: http</h2><h1 id="1-Http1-1和Http1-0的区别">1.Http1.1和Http1.0的区别</h1><h3 id="&nbsp;&nbsp;Http1-0_使用的是非持久连接,在非持久连接下，一个TCP连接只能传输一个WEB对象。">&nbsp;&nbsp;Http1.0 使用的是非持久连接,在非持久连接下，一个TCP连接只能传输一个WEB对象。</h3><h3 id="&nbsp;&nbsp;Http1-1_默认使用的是持久连接，一个TCP连接可以传输多个WEB对象。">&nbsp;&nbsp;Http1.1 默认使用的是持久连接，一个TCP连接可以传输多个WEB对象。</h3><h1 id="2-Http_request_的几种类型">2.Http request 的几种类型</h1><h3 id="&nbsp;&nbsp;POST、GET、DELETE、PUT、HEAD、TRACE、CONNECT。">&nbsp;&nbsp;POST、GET、DELETE、PUT、HEAD、TRACE、CONNECT。</h3><h1 id="3-Http_报文结构">3.Http 报文结构</h1><h3 id="&nbsp;&nbsp;请求报文：请求行、请求头、空行、请求数据。">&nbsp;&nbsp;请求报文：请求行、请求头、空行、请求数据。</h3><h3 id="&nbsp;&nbsp;响应报文：状态行、响应头部、空行、响应包体">&nbsp;&nbsp;响应报文：状态行、响应头部、空行、响应包体</h3><h1 id="4-Http_状态码">4.Http 状态码</h1><h3 id="&nbsp;&nbsp;1XX_表示服务器接收到了客户端的请求，还可以继续发送请求。">&nbsp;&nbsp;1XX 表示服务器接收到了客户端的请求，还可以继续发送请求。</h3><h3 id="&nbsp;&nbsp;2XX_表示服务器已成功接收到客户端的请求并处理。">&nbsp;&nbsp;2XX 表示服务器已成功接收到客户端的请求并处理。</h3><h3 id="&nbsp;&nbsp;3XX_表示服务器要求客户端重定向。">&nbsp;&nbsp;3XX 表示服务器要求客户端重定向。</h3><h3 id="&nbsp;&nbsp;4XX_表示客户端请求有非法内容">&nbsp;&nbsp;4XX 表示客户端请求有非法内容</h3><h3 id="&nbsp;&nbsp;5XX_表示服务器未能处理客户端的请求而出现意外错误。">&nbsp;&nbsp;5XX 表示服务器未能处理客户端的请求而出现意外错误。</h3>
           
         
       
@@ -341,7 +342,7 @@
             
               
                 
-                <a class="post-title-link" href="/2016/06/14/spring 事务管理 学习笔记/" itemprop="url">
+                <a class="post-title-link" href="/2016/08/01/spring 事务管理 学习笔记/" itemprop="url">
                   Untitled
                 </a>
               
@@ -355,8 +356,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-06-14T19:24:04+08:00" content="2016-06-14">
-              2016-06-14
+            <time itemprop="dateCreated" datetime="2016-08-01T10:43:15+08:00" content="2016-08-01">
+              2016-08-01
             </time>
           </span>
 
@@ -385,7 +386,8 @@
       
         
           
-            <h1 id="Spring_事务管理_学习笔记">Spring 事务管理  学习笔记</h1><p>事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。</p>
+            <p>title: Spring 事务管理  学习笔记<br>date: 2016-6-15 02:26:45</p>
+<h2 id="tags:_框架">tags: 框架</h2><p>#<br>事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。</p>
 <p>特性 ： 原子性，隔离性，持久性 ， 一致性 。 </p>
 <h2 id="spring_事务管理_高层抽象3个接口">spring 事务管理 高层抽象3个接口</h2><h3 id="1-事务平台管理器">1.事务平台管理器</h3><pre><code><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"hljs-title"</span>&gt;</span>Platform<span class="tag">&lt;/<span class="title">span</span>&gt;</span> TransactionManager    
 `<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
@@ -407,6 +409,100 @@
 </code></pre><h2 id="spring_事务隔离级别_4种">spring 事务隔离级别 4种</h2><h6 id="DEFAULT_:_使用后端数据库默认的隔离级别_。">DEFAULT : 使用后端数据库默认的隔离级别 。</h6><h6 id="READ_UNCOMMITED_:_允许你读取还未提交的改变了的数据_。可能导致脏、幻、不可重复读。">READ_UNCOMMITED : 允许你读取还未提交的改变了的数据 。可能导致脏、幻、不可重复读。</h6><h6 id="READ_COMMITTED_:允许在并发事务已经提交后读取。可防止脏读，但幻读和不可重复读仍可发生。">READ_COMMITTED :允许在并发事务已经提交后读取。可防止脏读，但幻读和不可重复读仍可发生。</h6><h6 id="REPEATABLE_READ_:对相同字段的多次读取时一致的，除非被数据别事务本身改变。">REPEATABLE_READ :对相同字段的多次读取时一致的，除非被数据别事务本身改变。</h6><h6 id="SERIALIZABLE_：完全服从ACID的隔离级别，速度最慢，采用队列的方式。">SERIALIZABLE ：完全服从ACID的隔离级别，速度最慢，采用队列的方式。</h6><p>mysql 采用的是REPEATABLE_READ隔离级别 </p>
 <p>oracle 默认采用 READ_COMMITTED 隔离级别</p>
 <h2 id="spring_TransactionDefinition_事务传播行为7种">spring TransactionDefinition 事务传播行为7种</h2><h5 id="PROPAGATION_REQUIRED_:_支持当前事务_，如果不存在就新创建一个">PROPAGATION_REQUIRED : 支持当前事务 ，如果不存在就新创建一个</h5><h5 id="PROPAGATION_SUPPORTS_:_支持当前事务，如果不存在就不使用事务。">PROPAGATION_SUPPORTS : 支持当前事务，如果不存在就不使用事务。</h5><h5 id="PROPAGATION_MANDATORY_:_支持当前事务，如果不存在就抛出异常。">PROPAGATION_MANDATORY : 支持当前事务，如果不存在就抛出异常。</h5><h5 id="PROPAGATION_REQUIRES_NEW_:_如果有事务存在，挂起当前事务，重新创建一个新事务。">PROPAGATION_REQUIRES_NEW : 如果有事务存在，挂起当前事务，重新创建一个新事务。</h5><h5 id="PROPAGATION_NOT_SUPPORTED_:_以非事务方式运行，如果有事务存在，则挂起当前事务。">PROPAGATION_NOT_SUPPORTED : 以非事务方式运行，如果有事务存在，则挂起当前事务。</h5><h5 id="PROPAGATION_NEVER_：_以非事务方式运行，如果有事务存在，则抛出异常。">PROPAGATION_NEVER ： 以非事务方式运行，如果有事务存在，则抛出异常。</h5><h5 id="PROPAGATION_NESTED_:_如果当前事务存在，则嵌套事务执行。">PROPAGATION_NESTED : 如果当前事务存在，则嵌套事务执行。</h5>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/01/Spring 和 Struts2 比较/" itemprop="url">
+                  Untitled
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">Posted on</span>
+            <time itemprop="dateCreated" datetime="2016-08-01T10:42:31+08:00" content="2016-08-01">
+              2016-08-01
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>title: SpringMVC 和 Struts2 比较<br>date: 2016-6-09 02:26:45</p>
+<h2 id="tags:_框架">tags: 框架</h2><h4 id="1、Struts2是类级别的拦截，_一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful_url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性却被所有方法共享，这也就无法用注解或其他方式标识其所属方法了。">1、Struts2是类级别的拦截， 一个类对应一个request上下文，SpringMVC是方法级别的拦截，一个方法对应一个request上下文，而方法同时又跟一个url对应,所以说从架构本身上SpringMVC就容易实现restful url,而struts2的架构实现起来要费劲，因为Struts2中Action的一个方法可以对应一个url，而其类属性却被所有方法共享，这也就无法用注解或其他方式标识其所属方法了。</h4><h4 id="2、由上边原因，SpringMVC的方法之间基本上独立的，独享request_response数据，请求数据通过参数获取，处理结果通过ModelMap交回给框架，方法之间不共享变量，而Struts2搞的就比较乱，虽然方法之间也是独立的，但其所有Action变量是共享的，这不会影响程序运行，却给我们编码_读程序时带来麻烦，每次来了请求就创建一个Action，一个Action对象对应一个request上下文。">2、由上边原因，SpringMVC的方法之间基本上独立的，独享request response数据，请求数据通过参数获取，处理结果通过ModelMap交回给框架，方法之间不共享变量，而Struts2搞的就比较乱，虽然方法之间也是独立的，但其所有Action变量是共享的，这不会影响程序运行，却给我们编码 读程序时带来麻烦，每次来了请求就创建一个Action，一个Action对象对应一个request上下文。</h4><h4 id="3、由于Struts2需要针对每个request进行封装，把request，session等servlet生命周期的变量封装成一个一个Map，供给每个Action使用，并保证线程安全，所以在原则上，是比较耗费内存的。">3、由于Struts2需要针对每个request进行封装，把request，session等servlet生命周期的变量封装成一个一个Map，供给每个Action使用，并保证线程安全，所以在原则上，是比较耗费内存的。</h4><h4 id="4、_拦截器实现机制上，Struts2有以自己的interceptor机制，SpringMVC用的是独立的AOP方式，这样导致Struts2的配置文件量还是比SpringMVC大。">4、 拦截器实现机制上，Struts2有以自己的interceptor机制，SpringMVC用的是独立的AOP方式，这样导致Struts2的配置文件量还是比SpringMVC大。</h4><h4 id="5、SpringMVC的入口是servlet，而Struts2是filter（这里要指出，filter和servlet是不同的。以前认为filter是servlet的一种特殊），这就导致了二者的机制不同，这里就牵涉到servlet和filter的区别了。">5、SpringMVC的入口是servlet，而Struts2是filter（这里要指出，filter和servlet是不同的。以前认为filter是servlet的一种特殊），这就导致了二者的机制不同，这里就牵涉到servlet和filter的区别了。</h4><h4 id="6、SpringMVC集成了Ajax，使用非常方便，只需一个注解@ResponseBody就可以实现，然后直接返回响应文本即可，而Struts2拦截器集成了Ajax，在Action中处理时一般必须安装插件或者自己写代码集成进去，使用起来也相对不方便。">6、SpringMVC集成了Ajax，使用非常方便，只需一个注解@ResponseBody就可以实现，然后直接返回响应文本即可，而Struts2拦截器集成了Ajax，在Action中处理时一般必须安装插件或者自己写代码集成进去，使用起来也相对不方便。</h4><h4 id="7、SpringMVC验证支持JSR303，处理起来相对更加灵活方便，而Struts2验证比较繁琐，感觉太烦乱。">7、SpringMVC验证支持JSR303，处理起来相对更加灵活方便，而Struts2验证比较繁琐，感觉太烦乱。</h4><h4 id="8、Spring_MVC和Spring是无缝的。从这个项目的管理和安全上也比Struts2高（当然Struts2也可以通过不同的目录结构和相关配置做到SpringMVC一样的效果，但是需要xml配置的地方不少）。">8、Spring MVC和Spring是无缝的。从这个项目的管理和安全上也比Struts2高（当然Struts2也可以通过不同的目录结构和相关配置做到SpringMVC一样的效果，但是需要xml配置的地方不少）。</h4><h4 id="9、_设计思想上，Struts2更加符合OOP的编程思想，_SpringMVC就比较谨慎，在servlet上扩展。">9、 设计思想上，Struts2更加符合OOP的编程思想， SpringMVC就比较谨慎，在servlet上扩展。</h4><h4 id="10、SpringMVC开发效率和性能高于Struts2。">10、SpringMVC开发效率和性能高于Struts2。</h4><h4 id="11、SpringMVC可以认为已经100%零配置。">11、SpringMVC可以认为已经100%零配置。</h4>
           
         
       
@@ -1079,7 +1175,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">posts</span>
             </a>
           </div>
