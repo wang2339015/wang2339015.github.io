@@ -1,0 +1,619 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java,wym,wym's blog" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="title: Spring 事务管理  学习笔记date: 2016-6-15 02:26:45
+tags: 框架#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+特性 ： 原子性，隔离性，持久性 ， 一致性 。 
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; Trans">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WYM's BLOG">
+<meta property="og:url" content="http://yoursite.com/2016/09/06/spring 事务管理 学习笔记/index.html">
+<meta property="og:site_name" content="WYM's BLOG">
+<meta property="og:description" content="title: Spring 事务管理  学习笔记date: 2016-6-15 02:26:45
+tags: 框架#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+特性 ： 原子性，隔离性，持久性 ， 一致性 。 
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; Trans">
+<meta property="og:updated_time" content="2016-08-24T03:04:12.135Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="WYM's BLOG">
+<meta name="twitter:description" content="title: Spring 事务管理  学习笔记date: 2016-6-15 02:26:45
+tags: 框架#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+特性 ： 原子性，隔离性，持久性 ， 一致性 。 
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; Trans">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/09/06/spring 事务管理 学习笔记/"/>
+
+  <title>  | WYM's BLOG </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">WYM's BLOG</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-guestbook">
+          <a href="/guestbook" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            留言
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2016-09-06T16:54:52+08:00" content="2016-09-06">
+              2016-09-06
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>title: Spring 事务管理  学习笔记<br>date: 2016-6-15 02:26:45</p>
+<h2 id="tags:_框架">tags: 框架</h2><p>#<br>事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。</p>
+<p>特性 ： 原子性，隔离性，持久性 ， 一致性 。 </p>
+<h2 id="spring_事务管理_高层抽象3个接口">spring 事务管理 高层抽象3个接口</h2><h3 id="1-事务平台管理器">1.事务平台管理器</h3><pre><code><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"hljs-title"</span>&gt;</span>Platform<span class="tag">&lt;/<span class="title">span</span>&gt;</span> TransactionManager    
+`<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
+
+### 2.事务定义信息 （隔离、传播、超时、只读）
+
+<span class="tag">&lt;<span class="title">pre</span>&gt;</span>`TransactionDefinition
+`<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
+
+### 3.事务具体运行状态
+
+<span class="tag">&lt;<span class="title">pre</span>&gt;</span>`TransactionStatus
+`<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
+
+#### Platform TransactionManager    具体实现类主要有
+
+<span class="tag">&lt;<span class="title">pre</span>&gt;</span>`<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"hljs-string"</span>&gt;</span>DataSourceTransactionManager :<span class="tag">&lt;/<span class="title">span</span>&gt;</span> 连接springJDBC iBatis使用
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"hljs-string"</span>&gt;</span>HibernateTransactionManager  :<span class="tag">&lt;/<span class="title">span</span>&gt;</span> 连接Hibernate时使用
+</code></pre><h2 id="spring_事务隔离级别_4种">spring 事务隔离级别 4种</h2><h6 id="DEFAULT_:_使用后端数据库默认的隔离级别_。">DEFAULT : 使用后端数据库默认的隔离级别 。</h6><h6 id="READ_UNCOMMITED_:_允许你读取还未提交的改变了的数据_。可能导致脏、幻、不可重复读。">READ_UNCOMMITED : 允许你读取还未提交的改变了的数据 。可能导致脏、幻、不可重复读。</h6><h6 id="READ_COMMITTED_:允许在并发事务已经提交后读取。可防止脏读，但幻读和不可重复读仍可发生。">READ_COMMITTED :允许在并发事务已经提交后读取。可防止脏读，但幻读和不可重复读仍可发生。</h6><h6 id="REPEATABLE_READ_:对相同字段的多次读取时一致的，除非被数据别事务本身改变。">REPEATABLE_READ :对相同字段的多次读取时一致的，除非被数据别事务本身改变。</h6><h6 id="SERIALIZABLE_：完全服从ACID的隔离级别，速度最慢，采用队列的方式。">SERIALIZABLE ：完全服从ACID的隔离级别，速度最慢，采用队列的方式。</h6><p>mysql 采用的是REPEATABLE_READ隔离级别 </p>
+<p>oracle 默认采用 READ_COMMITTED 隔离级别</p>
+<h2 id="spring_TransactionDefinition_事务传播行为7种">spring TransactionDefinition 事务传播行为7种</h2><h5 id="PROPAGATION_REQUIRED_:_支持当前事务_，如果不存在就新创建一个">PROPAGATION_REQUIRED : 支持当前事务 ，如果不存在就新创建一个</h5><h5 id="PROPAGATION_SUPPORTS_:_支持当前事务，如果不存在就不使用事务。">PROPAGATION_SUPPORTS : 支持当前事务，如果不存在就不使用事务。</h5><h5 id="PROPAGATION_MANDATORY_:_支持当前事务，如果不存在就抛出异常。">PROPAGATION_MANDATORY : 支持当前事务，如果不存在就抛出异常。</h5><h5 id="PROPAGATION_REQUIRES_NEW_:_如果有事务存在，挂起当前事务，重新创建一个新事务。">PROPAGATION_REQUIRES_NEW : 如果有事务存在，挂起当前事务，重新创建一个新事务。</h5><h5 id="PROPAGATION_NOT_SUPPORTED_:_以非事务方式运行，如果有事务存在，则挂起当前事务。">PROPAGATION_NOT_SUPPORTED : 以非事务方式运行，如果有事务存在，则挂起当前事务。</h5><h5 id="PROPAGATION_NEVER_：_以非事务方式运行，如果有事务存在，则抛出异常。">PROPAGATION_NEVER ： 以非事务方式运行，如果有事务存在，则抛出异常。</h5><h5 id="PROPAGATION_NESTED_:_如果当前事务存在，则嵌套事务执行。">PROPAGATION_NESTED : 如果当前事务存在，则嵌套事务执行。</h5>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/06/Spring 和 Struts2 比较/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="wym" />
+          <p class="site-author-name" itemprop="name">wym</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">11</span>
+              <span class="site-state-item-name">文章</span>
+            </a>
+          </div>
+
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#tags:_框架"><span class="nav-number">1.</span> <span class="nav-text">tags: 框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring_事务管理_高层抽象3个接口"><span class="nav-number">2.</span> <span class="nav-text">spring 事务管理 高层抽象3个接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-事务平台管理器"><span class="nav-number">2.1.</span> <span class="nav-text">1.事务平台管理器</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring_事务隔离级别_4种"><span class="nav-number">3.</span> <span class="nav-text">spring 事务隔离级别 4种</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#DEFAULT_:_使用后端数据库默认的隔离级别_。"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">DEFAULT : 使用后端数据库默认的隔离级别 。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#READ_UNCOMMITED_:_允许你读取还未提交的改变了的数据_。可能导致脏、幻、不可重复读。"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">READ_UNCOMMITED : 允许你读取还未提交的改变了的数据 。可能导致脏、幻、不可重复读。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#READ_COMMITTED_:允许在并发事务已经提交后读取。可防止脏读，但幻读和不可重复读仍可发生。"><span class="nav-number">3.0.0.0.3.</span> <span class="nav-text">READ_COMMITTED :允许在并发事务已经提交后读取。可防止脏读，但幻读和不可重复读仍可发生。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#REPEATABLE_READ_:对相同字段的多次读取时一致的，除非被数据别事务本身改变。"><span class="nav-number">3.0.0.0.4.</span> <span class="nav-text">REPEATABLE_READ :对相同字段的多次读取时一致的，除非被数据别事务本身改变。</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#SERIALIZABLE_：完全服从ACID的隔离级别，速度最慢，采用队列的方式。"><span class="nav-number">3.0.0.0.5.</span> <span class="nav-text">SERIALIZABLE ：完全服从ACID的隔离级别，速度最慢，采用队列的方式。</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring_TransactionDefinition_事务传播行为7种"><span class="nav-number">4.</span> <span class="nav-text">spring TransactionDefinition 事务传播行为7种</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PROPAGATION_REQUIRED_:_支持当前事务_，如果不存在就新创建一个"><span class="nav-number">4.0.0.1.</span> <span class="nav-text">PROPAGATION_REQUIRED : 支持当前事务 ，如果不存在就新创建一个</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PROPAGATION_SUPPORTS_:_支持当前事务，如果不存在就不使用事务。"><span class="nav-number">4.0.0.2.</span> <span class="nav-text">PROPAGATION_SUPPORTS : 支持当前事务，如果不存在就不使用事务。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PROPAGATION_MANDATORY_:_支持当前事务，如果不存在就抛出异常。"><span class="nav-number">4.0.0.3.</span> <span class="nav-text">PROPAGATION_MANDATORY : 支持当前事务，如果不存在就抛出异常。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PROPAGATION_REQUIRES_NEW_:_如果有事务存在，挂起当前事务，重新创建一个新事务。"><span class="nav-number">4.0.0.4.</span> <span class="nav-text">PROPAGATION_REQUIRES_NEW : 如果有事务存在，挂起当前事务，重新创建一个新事务。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PROPAGATION_NOT_SUPPORTED_:_以非事务方式运行，如果有事务存在，则挂起当前事务。"><span class="nav-number">4.0.0.5.</span> <span class="nav-text">PROPAGATION_NOT_SUPPORTED : 以非事务方式运行，如果有事务存在，则挂起当前事务。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PROPAGATION_NEVER_：_以非事务方式运行，如果有事务存在，则抛出异常。"><span class="nav-number">4.0.0.6.</span> <span class="nav-text">PROPAGATION_NEVER ： 以非事务方式运行，如果有事务存在，则抛出异常。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PROPAGATION_NESTED_:_如果当前事务存在，则嵌套事务执行。"><span class="nav-number">4.0.0.7.</span> <span class="nav-text">PROPAGATION_NESTED : 如果当前事务存在，则嵌套事务执行。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">wym</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

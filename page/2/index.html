@@ -87,7 +87,7 @@
 <meta name="description">
 <meta property="og:type" content="website">
 <meta property="og:title" content="WYM's BLOG">
-<meta property="og:url" content="http://yoursite.com/archives/2016/index.html">
+<meta property="og:url" content="http://yoursite.com/page/2/index.html">
 <meta property="og:site_name" content="WYM's BLOG">
 <meta property="og:description">
 <meta name="twitter:card" content="summary">
@@ -113,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/"/>
+  <link rel="canonical" href="http://yoursite.com/page/2/"/>
 
-  <title> 歸檔 | WYM's BLOG </title>
+  <title> WYM's BLOG </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
@@ -136,7 +136,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -253,251 +255,107 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  
+  
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共計 11 篇文章。 繼續努力。
-    </span>
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
 
-      
-      
-      
-
-      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/08/java 的四种引用/" itemprop="url">
+                  java的四种引用    (强、软、弱、虚)
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">發表於</span>
+            <time itemprop="dateCreated" datetime="2015-12-08T04:28:10+08:00" content="2015-12-08">
+              2015-12-08
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
         </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/09/06/spring 事务管理 学习笔记/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
+          
+            <h1 id="java的四种引用_(强、软、弱、虚)">java的四种引用    (强、软、弱、虚)</h1><h3 id="&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference_Queue_对JVM的垃圾回收机制非常有用。">&nbsp;&nbsp;&nbsp;学习这四种引用和引用队列Reference Queue 对JVM的垃圾回收机制非常有用。</h3><h3 id="1-强引用">1.强引用</h3><h4 id="&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如_Object_o_=_new_Object();_虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。">&nbsp;&nbsp;&nbsp;简单来说：强引用一直不会被GC回收，就好比是生活中必不缺少的必需品，比如 Object o = new Object(); 虚拟机就会认为这个对象在程序中会一直被用到，尽管出现内存不够的异常，也不会将此这个对象回收。</h4><h3 id="2-软引用">2.软引用</h3><h4 id="&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。">&nbsp;&nbsp;&nbsp;软引用好比就像生活中的用品一样，与强引用的区别就是：当jvm的内存不够的情况下，对软引用进行回收。在内存足够的情况下，不会进行回收，程序还可以直接调用。</h4><h4 id="&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。_软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;软引用可用来实现内存敏感的高速缓存。 软引用可以和一个引用队列（ReferenceQueue）联合使用，如果软引用所引用的对象被垃圾回收，Java虚拟机就会把这个软引用加入到与之关联的引用队列中。</h4><h3 id="3-弱引用">3.弱引用</h3><h4 id="&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。">&nbsp;&nbsp;&nbsp;弱引用就像可有可无的东西，跟软引用的区别：有更短的生命周期。一旦GC发现，就会立即回收，不管当前内存是否溢出。</h4><h4 id="&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回_收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。">&nbsp;&nbsp;&nbsp;弱引用可以和一个引用队列（ReferenceQueue）联合使用，如果弱引用所引用的对象被垃圾回 收，Java虚拟机就会把这个弱引用加入到与之关联的引用队列中。</h4><h3 id="4-虚引用">4.虚引用</h3><h4 id="&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列_（ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。">&nbsp;&nbsp;&nbsp;虚引用主要用来跟踪对象被垃圾回收器回收的活动。虚引用与软引用和弱引用的一个区别在于：虚引用必须和引用队列 （ReferenceQueue）联合使用。当垃圾回收器准备回收一个对象时，如果发现它还有虚引用，就会在回收对象的内存之前，把这个虚引用加入到与之关联的引用队列中。程序可以通过判断引用队列中是否已经加入了虚引用，来了解被引用的对象是否将要被垃圾回收。如果程序发现某个虚引用已经被加入到引用队列，那么就可以在所引用的对象的内存被回收之前采取必要的行动。</h4>
+          
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-06T16:54:52+08:00"
-              content="2016-09-06" >
-          09-06
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
-
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/06/Spring 和 Struts2 比较/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-06T16:54:52+08:00"
-              content="2016-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/09/06/笔记/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-09-06T16:49:44+08:00"
-              content="2016-09-06" >
-          09-06
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/24/HTTP 小知识点/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-24T11:03:32+08:00"
-              content="2016-08-24" >
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/08/24/git 常用命令/" itemprop="url">
-              
-                <span itemprop="name">未命名</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-08-24T11:03:00+08:00"
-              content="2016-08-24" >
-          08-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/05/26/j2EE常用框架/" itemprop="url">
-              
-                <span itemprop="name">j2EE常用框架</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-05-26T02:26:45+08:00"
-              content="2016-05-26" >
-          05-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
   </section>
 
   
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
 
 
 
@@ -665,12 +523,6 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   
 
