@@ -16,22 +16,22 @@
     
     
 
-    <meta name="description" content="##一、一级缓存二级缓存的概念解释（1）一级缓存就是Session级别的缓存，一个Session做了一个查询操作，它会把这个操作的结果放在一级缓存中，如果短时间内这个
+    <meta name="description" content="一、一级缓存二级缓存的概念解释（1）一级缓存就是Session级别的缓存，一个Session做了一个查询操作，它会把这个操作的结果放在一级缓存中，如果短时间内这个
 session（一定要同一个session）又做了同一个操作，那么hibernate直接从一级缓存中拿，而不会再去连数据库，取数据；
-（2）二级缓存就是SessionFactory级别的缓存，顾名思义，就是查询的时候会把查询结果缓存">
+（2）二级缓存就是SessionFactory级别的缓存，顾名思义，就是查询的时候会把查询结果缓存到二">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hibernate 一二级缓存 | WYM's BLOG">
 <meta property="og:url" content="http://yoursite.com/2016/09/12/hibernat一二级缓存/index.html">
 <meta property="og:site_name" content="WYM's BLOG">
-<meta property="og:description" content="##一、一级缓存二级缓存的概念解释（1）一级缓存就是Session级别的缓存，一个Session做了一个查询操作，它会把这个操作的结果放在一级缓存中，如果短时间内这个
+<meta property="og:description" content="一、一级缓存二级缓存的概念解释（1）一级缓存就是Session级别的缓存，一个Session做了一个查询操作，它会把这个操作的结果放在一级缓存中，如果短时间内这个
 session（一定要同一个session）又做了同一个操作，那么hibernate直接从一级缓存中拿，而不会再去连数据库，取数据；
-（2）二级缓存就是SessionFactory级别的缓存，顾名思义，就是查询的时候会把查询结果缓存">
-<meta property="og:updated_time" content="2016-09-11T20:35:43.130Z">
+（2）二级缓存就是SessionFactory级别的缓存，顾名思义，就是查询的时候会把查询结果缓存到二">
+<meta property="og:updated_time" content="2016-09-11T20:39:35.446Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="hibernate 一二级缓存 | WYM's BLOG">
-<meta name="twitter:description" content="##一、一级缓存二级缓存的概念解释（1）一级缓存就是Session级别的缓存，一个Session做了一个查询操作，它会把这个操作的结果放在一级缓存中，如果短时间内这个
+<meta name="twitter:description" content="一、一级缓存二级缓存的概念解释（1）一级缓存就是Session级别的缓存，一个Session做了一个查询操作，它会把这个操作的结果放在一级缓存中，如果短时间内这个
 session（一定要同一个session）又做了同一个操作，那么hibernate直接从一级缓存中拿，而不会再去连数据库，取数据；
-（2）二级缓存就是SessionFactory级别的缓存，顾名思义，就是查询的时候会把查询结果缓存">
+（2）二级缓存就是SessionFactory级别的缓存，顾名思义，就是查询的时候会把查询结果缓存到二">
     
     
     
@@ -225,14 +225,14 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>##一、一级缓存二级缓存的概念解释<br>（1）一级缓存就是Session级别的缓存，一个Session做了一个查询操作，它会把这个操作的结果放在一级缓存中，如果短时间内这个</p>
+    <p> 一、一级缓存二级缓存的概念解释<br>（1）一级缓存就是Session级别的缓存，一个Session做了一个查询操作，它会把这个操作的结果放在一级缓存中，如果短时间内这个</p>
 <p>session（一定要同一个session）又做了同一个操作，那么hibernate直接从一级缓存中拿，而不会再去连数据库，取数据；</p>
 <p>（2）二级缓存就是SessionFactory级别的缓存，顾名思义，就是查询的时候会把查询结果缓存到二级缓存中，如果同一个sessionFactory</p>
 <p>创建的某个session执行了相同的操作，hibernate就会从二级缓存中拿结果，而不会再去连接数据库；</p>
 <p>（3）Hibernate中提供了两级Cache，第一级别的缓存是Session级别的缓存，它是属于事务范围的缓存。这一级别的缓存由hibernate管理</p>
 <p>的，一般情况下无需进行干预；第二级别的缓存是SessionFactory级别的缓存，它是属于进程范围或群集范围的缓存。这一级别的缓</p>
 <p>存可以进行配置和更改，并且可以动态加载和卸载。 Hibernate还为查询结果提供了一个查询缓存，它依赖于第二级缓存；</p>
-<p>##二、一级缓存和二级缓存的比较<br>（1）第一级缓存 第二级缓存 存放数据的形式相互关联的持久化对象 对象的散装数据 缓存的范围事务范围，每个事务都有单独的第一级</p>
+<p> 二、一级缓存和二级缓存的比较<br>（1）第一级缓存 第二级缓存 存放数据的形式相互关联的持久化对象 对象的散装数据 缓存的范围事务范围，每个事务都有单独的第一级</p>
 <p>缓存进程范围或集群范围，缓存被同一个进程或集群范围内的所有事务共享并发访问策略由于每个事务都拥有单独的第一级缓存，不</p>
 <p>会出现并发问题，无需提供并发访问策略由于多个事务会同时访问第二级缓存中相同数据，因此必须提供适当的并发访问策略，来保</p>
 <p>证特定的事务隔离级别数据过期策略没有提供数据过期策略。</p>
