@@ -7,7 +7,7 @@
     
 
     <title>
-       | WYM&#39;s BLOG 
+      Spring事务管理 | WYM&#39;s BLOG 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,25 +16,31 @@
     
     
 
-    <meta name="description" content="title: Spring 事务管理  学习笔记date: 2016-6-15 02:26:45categories: springmathjax: true
-tags: spring 事务#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+    <meta name="description" content="#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
 特性 ： 原子性，隔离性，持久性 ， 一致性 。 
-spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs">
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; TransactionManager    
+`&amp;lt;/pre&amp;gt;
+
+### 2.事务定义信息 （隔离、传播、超时、只">
 <meta property="og:type" content="article">
-<meta property="og:title" content=" | WYM's BLOG">
-<meta property="og:url" content="http://yoursite.com/2016/09/12/spring 事务管理 学习笔记/index.html">
+<meta property="og:title" content="Spring事务管理 | WYM's BLOG">
+<meta property="og:url" content="http://yoursite.com/2016/06/15/Spring事务管理/index.html">
 <meta property="og:site_name" content="WYM's BLOG">
-<meta property="og:description" content="title: Spring 事务管理  学习笔记date: 2016-6-15 02:26:45categories: springmathjax: true
-tags: spring 事务#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+<meta property="og:description" content="#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
 特性 ： 原子性，隔离性，持久性 ， 一致性 。 
-spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs">
-<meta property="og:updated_time" content="2016-09-11T19:19:43.451Z">
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; TransactionManager    
+`&amp;lt;/pre&amp;gt;
+
+### 2.事务定义信息 （隔离、传播、超时、只">
+<meta property="og:updated_time" content="2016-09-11T19:31:36.936Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content=" | WYM's BLOG">
-<meta name="twitter:description" content="title: Spring 事务管理  学习笔记date: 2016-6-15 02:26:45categories: springmathjax: true
-tags: spring 事务#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+<meta name="twitter:title" content="Spring事务管理 | WYM's BLOG">
+<meta name="twitter:description" content="#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
 特性 ： 原子性，隔离性，持久性 ， 一致性 。 
-spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs">
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; TransactionManager    
+`&amp;lt;/pre&amp;gt;
+
+### 2.事务定义信息 （隔离、传播、超时、只">
     
     
     
@@ -146,7 +152,7 @@ classes that you can use:
     
       <!-- Github -->
       <li class="navigation__item">
-        <a href="https://github.com/wang2339015/wang2339015" title="Huno on GitHub">
+        <a href="https://github.com/wang2339015" title="Huno on GitHub">
           <i class='icon icon-social-github'></i>
           <span class="label">GitHub</span>
         </a>
@@ -197,17 +203,27 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title"></h1>
+    <h1 class="post-title">Spring事务管理</h1>
 
     
 
     <div class="post-meta">
-      <time datetime="2016-09-12" class="post-meta__date date">2016-09-12</time> 
+      <time datetime="2016-06-15" class="post-meta__date date">2016-06-15</time> 
 
       <span class="post-meta__tags tags">
 
           
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/Spring/">Spring</a>
+            </font>
+          
 
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/spring-事务/">spring 事务</a>
+            </font>
           
 
       </span>
@@ -218,8 +234,7 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>title: Spring 事务管理  学习笔记<br>date: 2016-6-15 02:26:45<br>categories: spring<br>mathjax: true</p>
-<h2 id="tags:_spring_事务">tags: spring 事务</h2><p>#<br>事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。</p>
+    <p>#<br>事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。</p>
 <p>特性 ： 原子性，隔离性，持久性 ， 一致性 。 </p>
 <h2 id="spring_事务管理_高层抽象3个接口">spring 事务管理 高层抽象3个接口</h2><h3 id="1-事务平台管理器">1.事务平台管理器</h3><pre><code><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"hljs-title"</span>&gt;</span>Platform<span class="tag">&lt;/<span class="title">span</span>&gt;</span> TransactionManager    
 `<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
@@ -264,7 +279,7 @@ classes that you can use:
 
 <section class="post-comments">
 
-    <div class="ds-thread" data-thread-key="2016/09/12/spring 事务管理 学习笔记/"></div>
+    <div class="ds-thread" data-thread-key="2016/06/15/Spring事务管理/"></div>
 
     <script type="text/javascript">
       var duoshuoQuery = {short_name:"letian"};
