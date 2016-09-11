@@ -7,7 +7,7 @@
     
 
     <title>
-      spring | WYM&#39;s BLOG 
+      spring 事务管理 | WYM&#39;s BLOG 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,16 +16,31 @@
     
     
 
-    <meta name="description" content="大肆夸大手机卡的健康啊看到科技快了">
+    <meta name="description" content="#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+特性 ： 原子性，隔离性，持久性 ， 一致性 。 
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; TransactionManager    
+`&amp;lt;/pre&amp;gt;
+
+### 2.事务定义信息 （隔离、传播、超时、只">
 <meta property="og:type" content="article">
-<meta property="og:title" content="spring | WYM's BLOG">
+<meta property="og:title" content="spring 事务管理 | WYM's BLOG">
 <meta property="og:url" content="http://yoursite.com/2015/12/08/spirng事务/index.html">
 <meta property="og:site_name" content="WYM's BLOG">
-<meta property="og:description" content="大肆夸大手机卡的健康啊看到科技快了">
-<meta property="og:updated_time" content="2016-09-11T20:02:15.901Z">
+<meta property="og:description" content="#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+特性 ： 原子性，隔离性，持久性 ， 一致性 。 
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; TransactionManager    
+`&amp;lt;/pre&amp;gt;
+
+### 2.事务定义信息 （隔离、传播、超时、只">
+<meta property="og:updated_time" content="2016-09-11T20:04:12.577Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="spring | WYM's BLOG">
-<meta name="twitter:description" content="大肆夸大手机卡的健康啊看到科技快了">
+<meta name="twitter:title" content="spring 事务管理 | WYM's BLOG">
+<meta name="twitter:description" content="#事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。
+特性 ： 原子性，隔离性，持久性 ， 一致性 。 
+spring 事务管理 高层抽象3个接口1.事务平台管理器&amp;lt;span class=&quot;hljs-title&quot;&amp;gt;Platform&amp;lt;/span&amp;gt; TransactionManager    
+`&amp;lt;/pre&amp;gt;
+
+### 2.事务定义信息 （隔离、传播、超时、只">
     
     
     
@@ -188,7 +203,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">spring</h1>
+    <h1 class="post-title">spring 事务管理</h1>
 
     
 
@@ -207,7 +222,7 @@ classes that you can use:
           
              &#8226; 标签:
             <font class="tags">
-              <a class="tags-link" href="/tags/spring/">spring</a>
+              <a class="tags-link" href="/tags/spring-事务/">spring 事务</a>
             </font>
           
 
@@ -219,8 +234,28 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p>大肆夸大手机卡的健康啊看到科技快了</p>
+    <p>#<br>事务 : 逻辑上的一组操作，要么全部成功，要么全部失败。</p>
+<p>特性 ： 原子性，隔离性，持久性 ， 一致性 。 </p>
+<h2 id="spring_事务管理_高层抽象3个接口">spring 事务管理 高层抽象3个接口</h2><h3 id="1-事务平台管理器">1.事务平台管理器</h3><pre><code><span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"hljs-title"</span>&gt;</span>Platform<span class="tag">&lt;/<span class="title">span</span>&gt;</span> TransactionManager    
+`<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
 
+### 2.事务定义信息 （隔离、传播、超时、只读）
+
+<span class="tag">&lt;<span class="title">pre</span>&gt;</span>`TransactionDefinition
+`<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
+
+### 3.事务具体运行状态
+
+<span class="tag">&lt;<span class="title">pre</span>&gt;</span>`TransactionStatus
+`<span class="tag">&lt;/<span class="title">pre</span>&gt;</span>
+
+#### Platform TransactionManager    具体实现类主要有
+
+<span class="tag">&lt;<span class="title">pre</span>&gt;</span>`<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"hljs-string"</span>&gt;</span>DataSourceTransactionManager :<span class="tag">&lt;/<span class="title">span</span>&gt;</span> 连接springJDBC iBatis使用
+<span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"hljs-string"</span>&gt;</span>HibernateTransactionManager  :<span class="tag">&lt;/<span class="title">span</span>&gt;</span> 连接Hibernate时使用
+</code></pre><h2 id="spring_事务隔离级别_4种">spring 事务隔离级别 4种</h2><h6 id="DEFAULT_:_使用后端数据库默认的隔离级别_。">DEFAULT : 使用后端数据库默认的隔离级别 。</h6><h6 id="READ_UNCOMMITED_:_允许你读取还未提交的改变了的数据_。可能导致脏、幻、不可重复读。">READ_UNCOMMITED : 允许你读取还未提交的改变了的数据 。可能导致脏、幻、不可重复读。</h6><h6 id="READ_COMMITTED_:允许在并发事务已经提交后读取。可防止脏读，但幻读和不可重复读仍可发生。">READ_COMMITTED :允许在并发事务已经提交后读取。可防止脏读，但幻读和不可重复读仍可发生。</h6><h6 id="REPEATABLE_READ_:对相同字段的多次读取时一致的，除非被数据别事务本身改变。">REPEATABLE_READ :对相同字段的多次读取时一致的，除非被数据别事务本身改变。</h6><h6 id="SERIALIZABLE_：完全服从ACID的隔离级别，速度最慢，采用队列的方式。">SERIALIZABLE ：完全服从ACID的隔离级别，速度最慢，采用队列的方式。</h6><p>mysql 采用的是REPEATABLE_READ隔离级别 </p>
+<p>oracle 默认采用 READ_COMMITTED 隔离级别</p>
+<h2 id="spring_TransactionDefinition_事务传播行为7种">spring TransactionDefinition 事务传播行为7种</h2><h5 id="PROPAGATION_REQUIRED_:_支持当前事务_，如果不存在就新创建一个">PROPAGATION_REQUIRED : 支持当前事务 ，如果不存在就新创建一个</h5><h5 id="PROPAGATION_SUPPORTS_:_支持当前事务，如果不存在就不使用事务。">PROPAGATION_SUPPORTS : 支持当前事务，如果不存在就不使用事务。</h5><h5 id="PROPAGATION_MANDATORY_:_支持当前事务，如果不存在就抛出异常。">PROPAGATION_MANDATORY : 支持当前事务，如果不存在就抛出异常。</h5><h5 id="PROPAGATION_REQUIRES_NEW_:_如果有事务存在，挂起当前事务，重新创建一个新事务。">PROPAGATION_REQUIRES_NEW : 如果有事务存在，挂起当前事务，重新创建一个新事务。</h5><h5 id="PROPAGATION_NOT_SUPPORTED_:_以非事务方式运行，如果有事务存在，则挂起当前事务。">PROPAGATION_NOT_SUPPORTED : 以非事务方式运行，如果有事务存在，则挂起当前事务。</h5><h5 id="PROPAGATION_NEVER_：_以非事务方式运行，如果有事务存在，则抛出异常。">PROPAGATION_NEVER ： 以非事务方式运行，如果有事务存在，则抛出异常。</h5><h5 id="PROPAGATION_NESTED_:_如果当前事务存在，则嵌套事务执行。">PROPAGATION_NESTED : 如果当前事务存在，则嵌套事务执行。</h5>
   </section>
 
   
