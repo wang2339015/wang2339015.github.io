@@ -7,7 +7,7 @@
     
 
     <title>
-      算法2 | WYM&#39;s BLOG 
+      《剑指offer》- 替换空格 | WYM&#39;s BLOG 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -16,16 +16,19 @@
     
     
 
-    <meta name="description" content="dajda kdjak ldjkal jla jdla">
+    <meta name="description" content="题目：请实现一个函数，把字符串中的每个空格替换成“%20”。 
+代码：     public class ReplaceBlank {        public static void main(String args[]){            String s=”We are happy.”;            System.out.println(replaceBlank(s));">
 <meta property="og:type" content="article">
-<meta property="og:title" content="算法2 | WYM's BLOG">
+<meta property="og:title" content="《剑指offer》- 替换空格 | WYM's BLOG">
 <meta property="og:url" content="http://yoursite.com/2016/10/31/算法2/index.html">
 <meta property="og:site_name" content="WYM's BLOG">
-<meta property="og:description" content="dajda kdjak ldjkal jla jdla">
-<meta property="og:updated_time" content="2016-10-31T02:26:06.504Z">
+<meta property="og:description" content="题目：请实现一个函数，把字符串中的每个空格替换成“%20”。 
+代码：     public class ReplaceBlank {        public static void main(String args[]){            String s=”We are happy.”;            System.out.println(replaceBlank(s));">
+<meta property="og:updated_time" content="2016-10-31T02:37:56.401Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="算法2 | WYM's BLOG">
-<meta name="twitter:description" content="dajda kdjak ldjkal jla jdla">
+<meta name="twitter:title" content="《剑指offer》- 替换空格 | WYM's BLOG">
+<meta name="twitter:description" content="题目：请实现一个函数，把字符串中的每个空格替换成“%20”。 
+代码：     public class ReplaceBlank {        public static void main(String args[]){            String s=”We are happy.”;            System.out.println(replaceBlank(s));">
     
     
     
@@ -188,7 +191,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">算法2</h1>
+    <h1 class="post-title">《剑指offer》- 替换空格</h1>
 
     
 
@@ -198,7 +201,17 @@ classes that you can use:
       <span class="post-meta__tags tags">
 
           
+            <font class="categories">
+            &#8226; 分类:
+            <a class="categories-link" href="/categories/算法/">算法</a>
+            </font>
+          
 
+          
+             &#8226; 标签:
+            <font class="tags">
+              <a class="tags-link" href="/tags/算法/">算法</a>
+            </font>
           
 
       </span>
@@ -209,8 +222,10 @@ classes that you can use:
   </header>
 
   <section id="post-content" class="article-content post">
-    <p> dajda kdjak ldjkal jla jdla </p>
-
+    <p>题目：请实现一个函数，把字符串中的每个空格替换成“%20”。 </p>
+<p>代码：<br>     public class ReplaceBlank {<br>        public static void main(String args[]){<br>            String s=”We are happy.”;<br>            System.out.println(replaceBlank(s));<br>        }<br>        public String replaceBlank(String input){<br>            if(input==null)    return null;<br>            StringBuffer outputBuffer=new StringBuffer();<br>            for(int i=0;i&lt;input.length();i++){<br>                if(input.charAt(i)==’ ‘){<br>                    outputBuffer.append(“%”);<br>                    outputBuffer.append(“2”);<br>                    outputBuffer.append(“0”);<br>                }else {<br>                    outputBuffer.append(String.valueOf(input.charAt(i)));<br>                }<br>            }<br>            return new String(outputBuffer);<br>        }<br>    } </p>
+<pre><code>主要考点：不能直接用<span class="built_in">String</span>去拼，最好使用<span class="built_in">StringBuffer</span>。
+</code></pre>
   </section>
 
   
