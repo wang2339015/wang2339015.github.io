@@ -7,7 +7,7 @@
     
 
     <title>
-      剑指offer——二维升序数组 | WYM&#39;s BLOG 
+      《剑指offer》- 二维升序数组 | WYM&#39;s BLOG 
     </title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -23,7 +23,7 @@ public class Find{
         if(array==null){   
             return false;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="剑指offer——二维升序数组 | WYM's BLOG">
+<meta property="og:title" content="《剑指offer》- 二维升序数组 | WYM's BLOG">
 <meta property="og:url" content="http://yoursite.com/2016/10/31/算法1/index.html">
 <meta property="og:site_name" content="WYM's BLOG">
 <meta property="og:description" content="题目描述：一个二维数组，每一行从左到右递增，每一列从上到下递增．输 入一个二维数组和一个整数，判断数组中是否含有整数。
@@ -32,9 +32,9 @@ public class Find{
     public static boolean find(int[][] array,int number){ 
         if(array==null){   
             return false;">
-<meta property="og:updated_time" content="2016-10-31T02:20:09.629Z">
+<meta property="og:updated_time" content="2016-10-31T02:23:15.815Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="剑指offer——二维升序数组 | WYM's BLOG">
+<meta name="twitter:title" content="《剑指offer》- 二维升序数组 | WYM's BLOG">
 <meta name="twitter:description" content="题目描述：一个二维数组，每一行从左到右递增，每一列从上到下递增．输 入一个二维数组和一个整数，判断数组中是否含有整数。
 主要代码：
 public class Find{ 
@@ -203,7 +203,7 @@ classes that you can use:
 
   <header class="post-header">
     
-    <h1 class="post-title">剑指offer——二维升序数组</h1>
+    <h1 class="post-title">《剑指offer》- 二维升序数组</h1>
 
     
 
@@ -256,7 +256,7 @@ classes that you can use:
         <span class="keyword">return</span> <span class="literal">false</span>; 
      }
 }
-</code></pre><p>算法思想：主要是从二维数组的第一行最后一列 也就是（int column=array[0].length-1; int row=0;）开始做判断，如果当前数比数组大，那么row++,否则colums–.<br>判定条件就是 column 不得小于0 ，row 不得大于array.length.</p>
+</code></pre><p>算法思想：主要是从二维数组的第一行最后一列 也就是（int column=array[0].length-1; int row=0;）开始做判断，如果当前数比数组大，那么row++,否则colums- -.<br>判定条件就是 column 不得小于0 ，row 不得大于array.length.</p>
 
   </section>
 
