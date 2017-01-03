@@ -4,7 +4,7 @@
     <!-- Title -->
     
     <title>
-        数组中出现次数超过一半的数组 | WYM&#39;s BLOG
+        检查A中是否存在一棵子树与B树的拓扑结构完全相同 | WYM&#39;s BLOG
     </title>
     
     <!-- Favicons -->
@@ -40,7 +40,7 @@
     <!-- The Open Graph protocol -->
     <meta property="og:url" content="http://yoursite.com">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="数组中出现次数超过一半的数组 | WYM&#39;s BLOG">
+    <meta property="og:title" content="检查A中是否存在一棵子树与B树的拓扑结构完全相同 | WYM&#39;s BLOG">
     <meta property="og:description" content="null">
     
      <!--[if lte IE 9]>
@@ -251,7 +251,7 @@
 		
 	
         <p class="article-headline-p">
-            数组中出现次数超过一半的数组
+            检查A中是否存在一棵子树与B树的拓扑结构完全相同
         </p>
     </div>
 
@@ -269,7 +269,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>WYM</strong>
-        <span>11月 20, 2016</span>
+        <span>12月 16, 2016</span>
     </div>
     
     <div class="section-spacer"></div>
@@ -289,7 +289,7 @@
     </button>
     <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-functions-viewtags-button">
         <li class="mdl-menu__item">
-        <a class="post_tag-link" href="/tags/算法/">算法</a>
+        <a class="post_tag-link" href="/tags/字符串/">字符串</a>
     </ul>
     
     <!-- Share -->
@@ -303,7 +303,7 @@
     <!-- Leancloud Views -->
     <a class="post_share-link" href="#">
         <li class="mdl-menu__item">
-            <span id="/2016/11/20/29/" class="leancloud-views_num" data-flag-title="数组中出现次数超过一半的数组">
+            <span id="/2016/12/16/IdenticalTree/" class="leancloud-views_num" data-flag-title="检查A中是否存在一棵子树与B树的拓扑结构完全相同">
      &nbsp;浏览量
 </span>
         </li>
@@ -322,21 +322,21 @@
     
     
     <!-- Share Twitter -->
-    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=数组中出现次数超过一半的数组&url=http://yoursite.com//2016/11/20/29/index.html&via=WYM" target="_blank">
+    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=检查A中是否存在一棵子树与B树的拓扑结构完全相同&url=http://yoursite.com//2016/12/16/IdenticalTree/index.html&via=WYM" target="_blank">
         <li class="mdl-menu__item">
             分享到 Twitter
         </li>
     </a>
     
     <!-- Share Google+ -->
-    <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2016/11/20/29/index.html" target="_blank">
+    <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2016/12/16/IdenticalTree/index.html" target="_blank">
         <li class="mdl-menu__item">
             分享到 Google+
         </li>
     </a>
     
     <!-- Share Weibo -->
-    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=数组中出现次数超过一半的数组&url=http://yoursite.com//2016/11/20/29/index.html&pic=&searchPic=false&style=simple" target="_blank">
+    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=检查A中是否存在一棵子树与B树的拓扑结构完全相同&url=http://yoursite.com//2016/12/16/IdenticalTree/index.html&pic=&searchPic=false&style=simple" target="_blank">
         <li class="mdl-menu__item">
             分享到微博
         </li>
@@ -348,52 +348,70 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
 	
-		<p>代码：</p>
-<pre><code><span class="keyword">public</span> <span class="keyword">class</span> text29 {
-<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>{
-    <span class="keyword">int</span>[] <span class="built_in">array</span> = {<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">5</span>, <span class="number">4</span>, <span class="number">2</span>};
-    text29 p = <span class="keyword">new</span> text29();
-    System.out.println(p.moreThanHalfNum(<span class="built_in">array</span>));
-}
-
-<span class="function"><span class="keyword">public</span> Integer  <span class="title">moreThanHalfNum</span> <span class="params">(<span class="keyword">int</span> [] arrys)</span></span>{
-    <span class="keyword">if</span> (arrys == null) {
-        <span class="keyword">return</span> null;
-    }
-    <span class="keyword">int</span> count = <span class="number">0</span>;
-    Integer  num  = <span class="number">0</span>;
-    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrys.length ; i++) {
-        <span class="keyword">if</span> (count == <span class="number">0</span>) {
-            num = arrys[i];
-            count = <span class="number">1</span>;
-        } <span class="keyword">else</span> <span class="keyword">if</span> (arrys[i] == num) {
-            count++;
-        } <span class="keyword">else</span> {
-            count--;
-        }
-    }
-        <span class="keyword">if</span>(pd(arrys,num)) {
-            <span class="keyword">return</span> num;
-        }<span class="keyword">else</span>{
-            <span class="keyword">return</span>  null;
-        }
-
-
-}
-<span class="function"><span class="keyword">public</span> Boolean <span class="title">pd</span> <span class="params">( <span class="keyword">int</span> [] arrys , <span class="keyword">int</span> num)</span></span>{
-    <span class="keyword">int</span> count  = <span class="number">0</span>;
-    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrys.length ; i++) {
-        <span class="keyword">if</span>(num == arrys[i]){
-            count ++;
-        }
-    }
-    <span class="keyword">if</span> ( count * <span class="number">2</span> &lt;= arrys.length) {
-        <span class="keyword">return</span> <span class="literal">false</span>;
+		<p>package charPart;</p>
+<p>/**</p>
+<ul>
+<li>对于两棵彼此独立的二叉树A和B，请编写一个高效算法，</li>
+<li>检查A中是否存在一棵子树与B树的拓扑结构完全相同。</li>
+<li>给定两棵二叉树的头结点A和B，请返回一个bool值，代表A中是否存在一棵同构于B的子树。<br>*</li>
+<li>@author YUMING</li>
+<li><p>@create 2016年12月24日 14:36<br>*/<br>public class IdenticalTree {<br> public boolean chkIdentical(TreeNode A, TreeNode B) {</p>
+<pre><code><span class="comment">// write code here</span>
+<span class="built_in">String</span> <span class="literal">as</span> = changeString(A);
+<span class="built_in">String</span> bs = changeString(B);
+<span class="keyword">return</span>  getIndex(<span class="literal">as</span>,bs) != -<span class="number">1</span> ?<span class="keyword">true</span>:<span class="keyword">false</span>;
+</code></pre><p> }</p>
+<p> private int getIndex(String as, String bs) {</p>
+<pre><code><span class="keyword">int</span> al = as.length();
+<span class="keyword">int</span> bl = bs.length();
+<span class="keyword">int</span> [] next = getNext(bs);
+<span class="keyword">int</span> i = <span class="number">0</span>;
+<span class="keyword">int</span> j = <span class="number">0</span>;
+<span class="keyword">while</span>( i &lt; al &amp;&amp; j &lt; bl ){
+    <span class="keyword">if</span>(j==-<span class="number">1</span>||as.charAt(i) == bs.charAt(j)){
+        i++;
+        j++;
     }<span class="keyword">else</span>{
-        <span class="keyword">return</span> <span class="literal">true</span>;
+        j = next[j];
+        <span class="keyword">if</span> ( al - i +<span class="number">1</span> &lt; bl - j + <span class="number">1</span>) {
+            <span class="keyword">break</span>;
+        }
     }
 }
-</code></pre><p>}<br>    主要思想 ：先查出数组中数量最多的元素，然后在去判断该元素的数量是否超过数组的长度。</p>
+<span class="keyword">return</span> j==bl?i-j:-<span class="number">1</span>;
+</code></pre><p> }</p>
+<p> private int[] getNext(String ms) {</p>
+<pre><code><span class="keyword">if</span> (ms.length() == <span class="number">1</span>) {
+    <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[] { -<span class="number">1</span> };
+}
+<span class="keyword">int</span>[] nextArr = <span class="keyword">new</span> <span class="keyword">int</span>[ms.length()];
+nextArr[<span class="number">0</span>] = -<span class="number">1</span>;
+nextArr[<span class="number">1</span>] = <span class="number">0</span>;
+<span class="keyword">int</span> pos = <span class="number">2</span>;
+<span class="keyword">int</span> cn = <span class="number">0</span>;
+<span class="keyword">while</span> (pos &lt; nextArr.length) {
+    <span class="keyword">if</span> (ms.charAt(pos-<span class="number">1</span>) == ms.charAt(cn)) {
+        nextArr[pos-<span class="number">1</span>] = ++cn;
+    }<span class="keyword">else</span> <span class="keyword">if</span>( cn &gt; <span class="number">0</span> ){
+        cn = nextArr[cn];
+    }<span class="keyword">else</span>{
+        nextArr[pos++] = <span class="number">0</span>;
+    }
+}
+<span class="keyword">return</span> nextArr;
+</code></pre><p> }</p>
+</li>
+</ul>
+<pre><code><span class="keyword">private</span> <span class="built_in">String</span> changeString(TreeNode head) {
+    <span class="keyword">if</span> (head == <span class="built_in">null</span>) {
+        <span class="keyword">return</span> <span class="string">"#!"</span>;
+    }
+    <span class="built_in">String</span> res = head<span class="built_in">.</span>val + <span class="string">"!"</span>;
+    res += changeString(head<span class="built_in">.</span>left);
+    res += changeString(head<span class="built_in">.</span>right);
+    <span class="keyword">return</span> res;
+}
+</code></pre><p>}<br>class TreeNode {<br>    int val = 0;<br>    TreeNode left = null;<br>    TreeNode right = null;<br>    public TreeNode(int val) {<br>        this.val = val;<br>    }<br>}</p>
 
 	
 	
@@ -421,9 +439,9 @@
 <div id="comments">
     <!-- 多说评论框 start -->
         <div class="ds-thread" 
-            data-thread-key="2016/11/20/29/" 
-            data-url="http://yoursite.com/2016/11/20/29/"
-            data-title="数组中出现次数超过一半的数组"></div>
+            data-thread-key="2016/12/16/IdenticalTree/" 
+            data-url="http://yoursite.com/2016/12/16/IdenticalTree/"
+            data-title="检查A中是否存在一棵子树与B树的拓扑结构完全相同"></div>
     <!-- 多说评论框 end -->
 </div>
 
@@ -436,13 +454,21 @@
     
     <!-- Prev Nav -->
     
+        <a href="/2016/12/21/Prior/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            新篇
+        </a>
+    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2016/11/16/选择排序/" id="post_nav-older" class="next-content">
+        <a href="/2016/12/16/DistinctSubstring/" id="post_nav-older" class="next-content">
             旧篇
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
@@ -528,7 +554,7 @@
         </a>
         <ul class="dropdown-menu">
             <li>
-            <a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/12/">十二月 2015<span class="sidebar_archives-count">7</span></a>
+            <a class="sidebar_archives-link" href="/archives/2016/12/">十二月 2016<span class="sidebar_archives-count">11</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/11/">十一月 2016<span class="sidebar_archives-count">7</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/10/">十月 2016<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/09/">九月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/07/">七月 2016<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2016/05/">五月 2016<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2015/12/">十二月 2015<span class="sidebar_archives-count">7</span></a>
         </ul>
     </li>
 
@@ -561,7 +587,7 @@
     <li>
         <a href="/archives">
              文章总数
-             <span class="sidebar-badge">22</span>
+             <span class="sidebar-badge">33</span>
         </a>
     </li>
 </ul>
