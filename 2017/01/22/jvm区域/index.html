@@ -217,7 +217,7 @@
 	<ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect"
 		for="post-toc-trigger-btn">
 			
-			<ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1、kafka是什么?"><span class="post-toc-number">1.</span> <span class="post-toc-text">1、kafka是什么?</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#2、产生背景"><span class="post-toc-number">2.</span> <span class="post-toc-text">2、产生背景</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#3、基本概念解释"><span class="post-toc-number">3.</span> <span class="post-toc-text">3、基本概念解释</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1）Broker"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">1）Broker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2）Producer"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">2）Producer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#3）Consumer"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">3）Consumer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#4）Topic"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">4）Topic</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#5）Partition"><span class="post-toc-number">3.5.</span> <span class="post-toc-text">5）Partition</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#4、适用场景"><span class="post-toc-number">4.</span> <span class="post-toc-text">4、适用场景</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Messaging"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Messaging</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Website_activity_tracking"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">Website activity tracking</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Metrics"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">Metrics</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Log_Aggregation"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">Log Aggregation</span></a></li></ol></li></ol>
+			<ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#整理一下jvm在运行时的区域划分"><span class="post-toc-number">1.</span> <span class="post-toc-text">整理一下jvm在运行时的区域划分</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jvm在运行的时候分为5个区：程序计数器、虚拟机栈，本地方法区，java堆、方法区。"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">jvm在运行的时候分为5个区：程序计数器、虚拟机栈，本地方法区，java堆、方法区。</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-程序计数器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.程序计数器</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#   程序计数器是一块比较小的内存空间，作用是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码命令，分之，循环，跳转，异常处理，线程恢复等基础功能都需要依赖这个计数器完成。"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">   程序计数器是一块比较小的内存空间，作用是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码命令，分之，循环，跳转，异常处理，线程恢复等基础功能都需要依赖这个计数器完成。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#   如果线程正在执行的是一个java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址;如果正在执行写方法时natvie方法，这个计数器值则为空。此内存区域是唯一一个在Java虚拟机规范中没有规定任何outofmemoryError情况的区域。属于线程私有。"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">   如果线程正在执行的是一个java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址;如果正在执行写方法时natvie方法，这个计数器值则为空。此内存区域是唯一一个在Java虚拟机规范中没有规定任何outofmemoryError情况的区域。属于线程私有。</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-java虚拟机栈"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">2.java虚拟机栈</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#   同程序计数器一样，是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是java方法执行的内存模型；_每个方法被执行的时候都会被创建一个栈帧用于存储局部变量表、操作栈、动态连接、方法出口等信息。每一个方法被调用的过程直至执行完成的过程，就对应着一个栈帧在虚拟机中从入栈到出栈的过程。"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">   同程序计数器一样，是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是java方法执行的内存模型； 每个方法被执行的时候都会被创建一个栈帧用于存储局部变量表、操作栈、动态连接、方法出口等信息。每一个方法被调用的过程直至执行完成的过程，就对应着一个栈帧在虚拟机中从入栈到出栈的过程。</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#   在java虚拟机规范中，对这个区域规定了两种异常状态；如果线程请求的栈深度大于虚拟机所允许的深度，将抛出stackoverflowerror异常；如果虚拟机栈可以动态扩展，当扩展时无法申请到足够的内存时会抛出outofmemoryerror异常。"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">   在java虚拟机规范中，对这个区域规定了两种异常状态；如果线程请求的栈深度大于虚拟机所允许的深度，将抛出stackoverflowerror异常；如果虚拟机栈可以动态扩展，当扩展时无法申请到足够的内存时会抛出outofmemoryerror异常。</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#3-本地方法栈"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">3.本地方法栈</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#本地方法栈与虚拟机栈所发挥的作用是非常相似的，区别是虚拟基站为虚拟机执行Java方法（字节码）服务，而本地方法栈则是为虚拟机使用到的native方法服务。虚拟机规范中对本地方法栈中的方法使用的语言、使用方式与数据结构并没有强制规定，因此具体的虚拟机可以自由实现它。甚至有的虚拟机直接就把本地方法栈和虚拟机合二为一。与虚拟机一样，本地方法栈区域也会抛出stackoverflowerror和Outofmemoryerror异常。"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">本地方法栈与虚拟机栈所发挥的作用是非常相似的，区别是虚拟基站为虚拟机执行Java方法（字节码）服务，而本地方法栈则是为虚拟机使用到的native方法服务。虚拟机规范中对本地方法栈中的方法使用的语言、使用方式与数据结构并没有强制规定，因此具体的虚拟机可以自由实现它。甚至有的虚拟机直接就把本地方法栈和虚拟机合二为一。与虚拟机一样，本地方法栈区域也会抛出stackoverflowerror和Outofmemoryerror异常。</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#4-java堆"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">4.java堆</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#   对于大多数应用来说，java堆是java虚拟机所管理的内存中最大的一块。jaba堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都要在堆上分配，但是随着JIT编译器的发展与逃逸分析的逐渐成熟，栈上分配、标量替换优化技术将会导致一些微妙的变化发生所有的对象都分配在堆上也渐渐变得不都是那么“绝对了”。"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">   对于大多数应用来说，java堆是java虚拟机所管理的内存中最大的一块。jaba堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都要在堆上分配，但是随着JIT编译器的发展与逃逸分析的逐渐成熟，栈上分配、标量替换优化技术将会导致一些微妙的变化发生所有的对象都分配在堆上也渐渐变得不都是那么“绝对了”。</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-方法区"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">5.方法区</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#   方法区与java堆一样，是各个线程共享的内存区域，它是用于存储已被虚拟机加载的类信息、常量、静态变量、及时编译器编译后的代码等数据。虽然java虚拟机规范把方法区描述为堆的一盒逻辑部分，但是它却有一个别名叫做non-heap，目的应该是与Java堆区分开来。"><span class="post-toc-number">1.6.1.</span> <span class="post-toc-text">   方法区与java堆一样，是各个线程共享的内存区域，它是用于存储已被虚拟机加载的类信息、常量、静态变量、及时编译器编译后的代码等数据。虽然java虚拟机规范把方法区描述为堆的一盒逻辑部分，但是它却有一个别名叫做non-heap，目的应该是与Java堆区分开来。</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#5-方法区-1"><span class="post-toc-number">1.7.</span> <span class="post-toc-text">5.方法区</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#5-1运行时常量池"><span class="post-toc-number">1.7.1.</span> <span class="post-toc-text">5.1运行时常量池</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#   运行时常量池是方法区的一部分。CLASS文件中除了有类的版本、字段、方法、接口等描述等信息外，还有一项信息是常量池，用于存放编译期生产的各种字面量和符号引用，这部分发内容将在类加载后存放到方法区的运行时常量池中。"><span class="post-toc-number">1.7.2.</span> <span class="post-toc-text">   运行时常量池是方法区的一部分。CLASS文件中除了有类的版本、字段、方法、接口等描述等信息外，还有一项信息是常量池，用于存放编译期生产的各种字面量和符号引用，这部分发内容将在类加载后存放到方法区的运行时常量池中。</span></a></li></ol></li></ol></li></ol>
 		
 <!--			<li class="mdl-menu__item">Some Action</li>-->
 	</ul>
@@ -269,7 +269,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>WYM</strong>
-        <span>1月 12, 2017</span>
+        <span>1月 22, 2017</span>
     </div>
     
     <div class="section-spacer"></div>
@@ -303,7 +303,7 @@
     <!-- Leancloud Views -->
     <a class="post_share-link" href="#">
         <li class="mdl-menu__item">
-            <span id="/2017/01/12/Reverse/" class="leancloud-views_num" data-flag-title="">
+            <span id="/2017/01/22/jvm区域/" class="leancloud-views_num" data-flag-title="">
      &nbsp;浏览量
 </span>
         </li>
@@ -322,21 +322,21 @@
     
     
     <!-- Share Twitter -->
-    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://yoursite.com//2017/01/12/Reverse/index.html&via=WYM" target="_blank">
+    <a class="post_share-link" href="https://twitter.com/intent/tweet?text=&url=http://yoursite.com//2017/01/22/jvm区域/index.html&via=WYM" target="_blank">
         <li class="mdl-menu__item">
             分享到 Twitter
         </li>
     </a>
     
     <!-- Share Google+ -->
-    <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/01/12/Reverse/index.html" target="_blank">
+    <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com//2017/01/22/jvm区域/index.html" target="_blank">
         <li class="mdl-menu__item">
             分享到 Google+
         </li>
     </a>
     
     <!-- Share Weibo -->
-    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://yoursite.com//2017/01/12/Reverse/index.html&pic=&searchPic=false&style=simple" target="_blank">
+    <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=&url=http://yoursite.com//2017/01/22/jvm区域/index.html&pic=&searchPic=false&style=simple" target="_blank">
         <li class="mdl-menu__item">
             分享到微博
         </li>
@@ -348,26 +348,9 @@
                 <!-- Post Content -->
                 <div id="post-content" class="markdown-Github mdl-color-text--grey-700 mdl-card__supporting-text fade out">
 	
-		<p>title: kafka介绍<br>date: 2017-01-12 11:25:41<br>categories: mq<br>mathjax: true<br>tags: kafka<br>comment: true</p>
+		<p>title: jvm 区域划分<br>date: 2017-01-20 15:25:41<br>categories: jvm<br>mathjax: true<br>tags: 内存管理<br>comment: true</p>
 <hr>
-<p>借鉴了一下别人整理的关于kafka的知识点。</p>
-<h2 id="1、kafka是什么?">1、kafka是什么?</h2><p>&nbsp;&nbsp;&nbsp;Kafka是由LinkedIn开发的一个分布式基于发布/订阅的消息系统，使用Scala编写，它以可水平扩展和高吞吐率而被广泛使用，是hadoop的一份子。</p>
-<h2 id="2、产生背景">2、产生背景</h2><p>&nbsp;&nbsp;&nbsp;Kafka是一个消息系统，用作LinkedIn的活动流（Activity Stream）和运营数据处理管道（Pipeline）的基础。活动流数据是几乎所有站点在对其网站使用情况做报表时都要用到的数据中最常规的部分。活动数据包括页面访问量（Page View）、被查看内容方面的信息以及搜索情况等内容。这种数据通常的处理方式是先把各种活动以日志的形式写入某种文件，然后周期性地对这些文件进行统计分析。运营数据指的3是服务器的性能数据（CPU、IO使用率、请求时间、服务日志等等数据)。运营数据的统计方法种类繁多。</p>
-<h2 id="3、基本概念解释">3、基本概念解释</h2><h3 id="1）Broker">1）Broker</h3><p>Kafka集群包含一个或多个服务器，这种服务器被称为broker。</p>
-<h3 id="2）Producer">2）Producer</h3><p>负责发布消息到Kafka broke</p>
-<h3 id="3）Consumer">3）Consumer</h3><p>消息消费者，向Kafka broker读取消息的客户端，consumer从broker拉取(pull)数据并进行处理。</p>
-<h3 id="4）Topic">4）Topic</h3><p>每条发布到Kafka集群的消息都有一个类别，这个类别被称为Topic。</p>
-<h3 id="5）Partition">5）Partition</h3><p>Parition是物理上的概念</p>
-<h2 id="4、适用场景">4、适用场景</h2><h3 id="Messaging">Messaging</h3><ul>
-<li>1.对于一些常规的消息系统,kafka是个不错的选择.</li>
-<li>2.partitons/replication和容错,可以使kafka具有良好的扩展性和性能优势.</li>
-<li><p>3.kafka并没有提供JMS中的”事务性””消息传输担保(消息确认机制)””消息分组”等企业级特性;kafka只能使用作为”常规”的消息系统,在一定程度上,尚未确保消息的发送与接收绝对可靠(比如,消息重发,消息发送丢失等)</p>
-<h3 id="Website_activity_tracking">Website activity tracking</h3><p>&nbsp;&nbsp;&nbsp;kafka可以作为”网站活性跟踪”的最佳工具;可以将网页/用户操作等信息发送到kafka中.并实时监控,或者离线统计分析等</p>
-<h3 id="Metrics">Metrics</h3><p>&nbsp;&nbsp;&nbsp;Kafka通常被用于可操作的监控数据。这包括从分布式应用程序来的聚合统计用来生产集中的运营数据提要。</p>
-<h3 id="Log_Aggregation">Log Aggregation</h3><p>&nbsp;&nbsp;&nbsp;kafka的特性决定它非常适合作为”日志收集中心”;application可以将操作日志”批量””异步”的发送到kafka集群中,而不是保存在本地或者DB中;kafka可以批量提交消息/压缩消息等,这对producer端而言,几乎感觉不到性能的开支.此时consumer端可以使Hadoop等其他系统化的存储和分析系统</p>
-</li>
-</ul>
-
+<h3 id="整理一下jvm在运行时的区域划分">整理一下jvm在运行时的区域划分</h3><h4 id="jvm在运行的时候分为5个区：程序计数器、虚拟机栈，本地方法区，java堆、方法区。">jvm在运行的时候分为5个区：程序计数器、虚拟机栈，本地方法区，java堆、方法区。</h4><h4 id="1-程序计数器">1.程序计数器</h4><h5 id="&nbsp;&nbsp;&nbsp;程序计数器是一块比较小的内存空间，作用是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码命令，分之，循环，跳转，异常处理，线程恢复等基础功能都需要依赖这个计数器完成。">&nbsp;&nbsp;&nbsp;程序计数器是一块比较小的内存空间，作用是当前线程所执行的字节码的行号指示器。在虚拟机的概念模型里，字节码解释器工作时就是通过改变这个计数器的值来选取下一条需要执行的字节码命令，分之，循环，跳转，异常处理，线程恢复等基础功能都需要依赖这个计数器完成。</h5><h5 id="&nbsp;&nbsp;&nbsp;如果线程正在执行的是一个java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址;如果正在执行写方法时natvie方法，这个计数器值则为空。此内存区域是唯一一个在Java虚拟机规范中没有规定任何outofmemoryError情况的区域。属于线程私有。">&nbsp;&nbsp;&nbsp;如果线程正在执行的是一个java方法，这个计数器记录的是正在执行的虚拟机字节码指令的地址;如果正在执行写方法时natvie方法，这个计数器值则为空。此内存区域是唯一一个在Java虚拟机规范中没有规定任何outofmemoryError情况的区域。属于线程私有。</h5><h4 id="2-java虚拟机栈">2.java虚拟机栈</h4><h5 id="&nbsp;&nbsp;&nbsp;同程序计数器一样，是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是java方法执行的内存模型；_每个方法被执行的时候都会被创建一个栈帧用于存储局部变量表、操作栈、动态连接、方法出口等信息。每一个方法被调用的过程直至执行完成的过程，就对应着一个栈帧在虚拟机中从入栈到出栈的过程。">&nbsp;&nbsp;&nbsp;同程序计数器一样，是线程私有的，它的生命周期与线程相同。虚拟机栈描述的是java方法执行的内存模型； 每个方法被执行的时候都会被创建一个栈帧用于存储局部变量表、操作栈、动态连接、方法出口等信息。每一个方法被调用的过程直至执行完成的过程，就对应着一个栈帧在虚拟机中从入栈到出栈的过程。</h5><h5 id="&nbsp;&nbsp;&nbsp;在java虚拟机规范中，对这个区域规定了两种异常状态；如果线程请求的栈深度大于虚拟机所允许的深度，将抛出stackoverflowerror异常；如果虚拟机栈可以动态扩展，当扩展时无法申请到足够的内存时会抛出outofmemoryerror异常。">&nbsp;&nbsp;&nbsp;在java虚拟机规范中，对这个区域规定了两种异常状态；如果线程请求的栈深度大于虚拟机所允许的深度，将抛出stackoverflowerror异常；如果虚拟机栈可以动态扩展，当扩展时无法申请到足够的内存时会抛出outofmemoryerror异常。</h5><h4 id="3-本地方法栈">3.本地方法栈</h4><h5 id="本地方法栈与虚拟机栈所发挥的作用是非常相似的，区别是虚拟基站为虚拟机执行Java方法（字节码）服务，而本地方法栈则是为虚拟机使用到的native方法服务。虚拟机规范中对本地方法栈中的方法使用的语言、使用方式与数据结构并没有强制规定，因此具体的虚拟机可以自由实现它。甚至有的虚拟机直接就把本地方法栈和虚拟机合二为一。与虚拟机一样，本地方法栈区域也会抛出stackoverflowerror和Outofmemoryerror异常。">本地方法栈与虚拟机栈所发挥的作用是非常相似的，区别是虚拟基站为虚拟机执行Java方法（字节码）服务，而本地方法栈则是为虚拟机使用到的native方法服务。虚拟机规范中对本地方法栈中的方法使用的语言、使用方式与数据结构并没有强制规定，因此具体的虚拟机可以自由实现它。甚至有的虚拟机直接就把本地方法栈和虚拟机合二为一。与虚拟机一样，本地方法栈区域也会抛出stackoverflowerror和Outofmemoryerror异常。</h5><h4 id="4-java堆">4.java堆</h4><h5 id="&nbsp;&nbsp;&nbsp;对于大多数应用来说，java堆是java虚拟机所管理的内存中最大的一块。jaba堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都要在堆上分配，但是随着JIT编译器的发展与逃逸分析的逐渐成熟，栈上分配、标量替换优化技术将会导致一些微妙的变化发生所有的对象都分配在堆上也渐渐变得不都是那么“绝对了”。">&nbsp;&nbsp;&nbsp;对于大多数应用来说，java堆是java虚拟机所管理的内存中最大的一块。jaba堆是被所有线程共享的一块内存区域，在虚拟机启动时创建。此内存区域的唯一目的就是存放对象实例，几乎所有的对象实例都在这里分配内存。这一点在java虚拟机规范中的描述是：所有的对象实例以及数组都要在堆上分配，但是随着JIT编译器的发展与逃逸分析的逐渐成熟，栈上分配、标量替换优化技术将会导致一些微妙的变化发生所有的对象都分配在堆上也渐渐变得不都是那么“绝对了”。</h5><h4 id="5-方法区">5.方法区</h4><h5 id="&nbsp;&nbsp;&nbsp;方法区与java堆一样，是各个线程共享的内存区域，它是用于存储已被虚拟机加载的类信息、常量、静态变量、及时编译器编译后的代码等数据。虽然java虚拟机规范把方法区描述为堆的一盒逻辑部分，但是它却有一个别名叫做non-heap，目的应该是与Java堆区分开来。">&nbsp;&nbsp;&nbsp;方法区与java堆一样，是各个线程共享的内存区域，它是用于存储已被虚拟机加载的类信息、常量、静态变量、及时编译器编译后的代码等数据。虽然java虚拟机规范把方法区描述为堆的一盒逻辑部分，但是它却有一个别名叫做non-heap，目的应该是与Java堆区分开来。</h5><h4 id="5-方法区-1">5.方法区</h4><h5 id="5-1运行时常量池">5.1运行时常量池</h5><h5 id="&nbsp;&nbsp;&nbsp;运行时常量池是方法区的一部分。CLASS文件中除了有类的版本、字段、方法、接口等描述等信息外，还有一项信息是常量池，用于存放编译期生产的各种字面量和符号引用，这部分发内容将在类加载后存放到方法区的运行时常量池中。">&nbsp;&nbsp;&nbsp;运行时常量池是方法区的一部分。CLASS文件中除了有类的版本、字段、方法、接口等描述等信息外，还有一项信息是常量池，用于存放编译期生产的各种字面量和符号引用，这部分发内容将在类加载后存放到方法区的运行时常量池中。</h5>
 	
 	
 	
@@ -394,8 +377,8 @@
 <div id="comments">
     <!-- 多说评论框 start -->
         <div class="ds-thread" 
-            data-thread-key="2017/01/12/Reverse/" 
-            data-url="http://yoursite.com/2017/01/12/Reverse/"
+            data-thread-key="2017/01/22/jvm区域/" 
+            data-url="http://yoursite.com/2017/01/22/jvm区域/"
             data-title=""></div>
     <!-- 多说评论框 end -->
 </div>
